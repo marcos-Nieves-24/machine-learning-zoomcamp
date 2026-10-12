@@ -101,3 +101,40 @@ Sacar interaction_count te cuesta 0.044.
 - Los números salen del notebook ejecutado (`homework-3.ipynb`), no están
   escritos a mano. Si cambiás el dataset, corré de nuevo
   `generate_social_cards.py` y las cards se actualizan solas.
+
+---
+
+## LinkedIn — carrusel de código (4 tarjetas)
+
+Tarjetas: `linkedin-code-01-preparar-los-datos.png` →
+`linkedin-code-02-el-modelo.png` → `linkedin-code-03-feature-menos-util.png` →
+`linkedin-code-04-regularizacion.png`.
+
+Subilas como post con varias imágenes (en el orden de la lista) y usá este texto:
+
+El modelo de clasificación del Homework 3, en 4 snippets 👇
+
+1️⃣ Preparar los datos: categóricas → "NA", numéricas → 0.0, y split 60/20/20 con
+semillas fijas para que sea reproducible.
+
+2️⃣ El modelo: DictVectorizer para el one-hot y
+LogisticRegression(solver="liblinear", C=1.0, max_iter=1000, random_state=42).
+Accuracy en validación: 0.645.
+
+3️⃣ Feature elimination: entrenás sin cada feature y te quedás con la diferencia
+más chica. Sacar number_of_courses_viewed sólo cuesta 0.002; sacar
+interaction_count cuesta 0.044. Esa diferencia te dice qué feature no aporta.
+
+4️⃣ Regularización: el barrido de C. Con C=0.000001 el modelo frena tanto que el
+accuracy cae a 0.598; con C=0.001 llega a 0.645.
+
+Deslizá → y contame: ¿cuál de los 4 snippets te resultó más útil?
+
+> Alt text: cuatro tarjetas oscuras con código Python resaltado que muestran la
+> preparación de datos, el entrenamiento del modelo de regresión logística, la
+> eliminación de features y el barrido del parámetro C del homework 3.
+
+**Nota de honestidad**: los snippets están abreviados para entrar en la tarjeta
+(nombres de variables más cortos, llamadas partidas en dos líneas). El código
+completo y ejecutado está en `homework-3/homework-3.ipynb`. No publiques estos
+snippets como si fueran el notebook literal: son una versión de lectura.

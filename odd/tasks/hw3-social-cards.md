@@ -35,13 +35,17 @@ Out of scope: touching notebooks in the repo root, pushing, PR creation.
 
 ## Checklist
 
-- [ ] T1 - Design system: theme tokens (ink + gold), Inter weights, rounded-card and pill primitives, 2x supersampled rendering. Route: inline (single file, design resolved).
-      Trigger evidence: no mapping trigger (all numbers already measured); no writer trigger (one source file; PNGs are outputs).- [ ] T2 - LinkedIn card 1200x1200 with all six answers + metric chips. Route: inline.
-- [ ] T3 - Instagram post 1080x1350 and story 1080x1920. Route: inline.
-- [ ] T4 - X card 1600x900 (two-column answer grid, larger type). Route: inline.
-- [ ] T5 - Verification: exact pixel dimensions, non-blank, no clipped text, Inter actually resolved. Route: inline.
-- [ ] T6 - Captions file for the three platforms (Spanish, technical terms in English). Route: inline.
-- [ ] T7 - Work-unit commit on a feature branch + native `gentle-ai review assess`.
+- [x] T1 - Design system: theme tokens (ink + gold), Inter weights, rounded-card and pill primitives, 2x supersampled rendering. Route: inline (single file, design resolved).
+      Trigger evidence: no mapping trigger (all numbers already measured); no writer trigger (one source file; PNGs are outputs).
+- [x] T2 - LinkedIn card 1200x1200 with all six answers + metric chips. Route: inline.
+- [x] T3 - Instagram post 1080x1350 and story 1080x1920. Route: inline.
+- [x] T4 - X card 1600x900 (two-column answer grid, larger type). Route: inline.
+- [x] T5 - Verification: exact pixel dimensions, non-blank, no clipped text, Inter actually resolved. Route: inline.
+- [x] T6 - Captions file for the three platforms (Spanish, technical terms in English). Route: inline.
+- [x] T7 - Work-unit commit + native `gentle-ai review assess` (result: risk `passive`, reason `non_executable_only`).
+- [x] T8 - Code-snippet series: 4 LinkedIn cards, Pygments highlighting, Fira Code, line numbers, result strip, dataset notes. Route: inline.
+- [x] T9 - Carousel captions for the code series. Route: inline.
+- [ ] T10 - Work-unit commit for the code series + `gentle-ai review assess --base-ref 93a1ef1`.
 
 ## Acceptance criteria
 - Every number on a card matches the executed notebook output.
@@ -57,7 +61,14 @@ Out of scope: touching notebooks in the repo root, pushing, PR creation.
 - T4 done: `out/x-card-1600x900.png` (2 columns x 3 rows).
 - T5 done: all four files verified at exact platform pixel sizes, opaque RGB, zero text-overflow violations from the built-in guard.
 - T6 done: `social/captions.md` with per-platform captions + alt text.
-- T7 pending: work-unit commit, then `gentle-ai review assess`.
+- T7 done: commit `93a1ef1` on `feat/hw3-social-cards` (captions + this doc).
+  `gentle-ai review assess` on that candidate returned risk `passive`
+  (`non_executable_only`), so no consent or reviewer ceremony applied.
+  Note: the cards, generator, fonts and notebook were already committed by the
+  user on `main` as `3b5f5b9` while this task was in flight; nothing was
+  duplicated.
+- T8 done: 4 code cards, `out/linkedin-code-0*.png`, 1200x1200.
+- T9 done: carousel caption added to `social/captions.md`.
 
 ## Design decisions
 
@@ -65,3 +76,9 @@ Out of scope: touching notebooks in the repo root, pushing, PR creation.
 - Cards stay typographic (no charts) so they remain legible at thumbnail size.
 - Header rule and answer rows use hairlines instead of boxes to keep the ink surface calm.
 - Output is flattened to opaque RGB because social uploaders handle alpha inconsistently.
+- Code cards use Pygments for real token classification and bundled Fira Code (SIL OFL), so highlighting is not hand-rolled. Pygments is optional: without it the code renders in a single colour instead of failing.
+- Code font size is derived from the longest line, and short snippets get
+  airier leading instead of a dead band at the bottom of the card.
+- Snippets are abbreviated for legibility (`train`/`val` instead of
+  `df_train`/`df_val`, calls split over two lines). The captions say so
+  explicitly, and the full executed code lives in `homework-3.ipynb`.
