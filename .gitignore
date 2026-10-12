@@ -8,3 +8,6 @@ wheels/
 
 # Virtual environments
 .venv
+
+# Datasets (regenerate with the wget commands documented in the homework)
+homework-3/course_lead_scoring_2026.csv
