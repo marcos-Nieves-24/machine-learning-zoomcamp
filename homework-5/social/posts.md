@@ -1,10 +1,10 @@
-# Homework 5 — Posts & Snippets para publicar
+# Homework 5 — Posts & Snippets for publishing
 
-Listos para LinkedIn, Instagram y DEV.to. Usá `#mlzoomcamp`, tag @AlexeyGrigorev o @DataTalksClub.
+Ready for LinkedIn, Instagram and DEV.to. Use `#mlzoomcamp`, tag @AlexeyGrigorev or @DataTalksClub.
 
 ---
 
-## Snippet 1 — Cargar el modelo congelado (pickle)
+## Snippet 1 — Load the frozen model (pickle)
 
 ```python
 import pickle
@@ -28,12 +28,12 @@ prob = float(pipeline.predict_proba([record])[0, 1])
 print(round(prob, 3))   # 0.533
 ```
 
-## Snippet 2 — Servir con FastAPI
+## Snippet 2 — Serve with FastAPI
 
 ```python
 from fastapi import FastAPI
 from pydantic import BaseModel
-import pickle, hashlib
+import pickle
 from pathlib import Path
 from model import normalize_record
 
@@ -61,7 +61,7 @@ def predict(lead: Lead):
             "conversion": prob >= 0.5}
 ```
 
-## Snippet 3 — Dockerfile mínimo reproducible
+## Snippet 3 — Minimal reproducible Dockerfile
 
 ```dockerfile
 FROM python:3.11.15-slim-bookworm
@@ -82,11 +82,11 @@ EXPOSE 9696
 ENTRYPOINT ["uvicorn", "predict:app", "--host", "0.0.0.0", "--port", "9696"]
 ```
 
-## Snippet 4 — Verificar el artifact antes de servir
+## Snippet 4 — Verify the artifact before serving
 
 ```bash
 sha256sum pipeline.bin
-# esperado: 1646bbdcd38d4f044da6b630c5b332c93a314245a8c21929011c42de51f629f1
+# expected: 1646bbdcd38d4f044da6b630c5b332c93a314245a8c21929011c42de51f629f1
 ```
 
 ## Snippet 5 — Health check
@@ -138,6 +138,6 @@ Tag: #machinelearning #fastapi #docker #mlops
 ## Assets
 
 - Cards: `social/out/hw5-*.png`
-- Video: `social/out/hw5-answers-1080x1350.mp4` (10s, 1080x1350, 9:16-ish feed)
+- Video: `social/out/hw5-answers-1080x1350.mp4`
 - FAQ: `../FAQ.md`
 - Notebook: `../homework-5.ipynb`
