@@ -140,6 +140,7 @@ Tag: #machinelearning #fastapi #docker #mlops
 - Cards: `social/out/hw5-*.png`
 - Answers video (10s, 4:5): `social/out/hw5-answers-1080x1350.mp4`
 - Data-flow video (15s, 16:9): `social/out/hw5-dataflow-1920x1080.mp4`
-- Flow diagram v2 (24s, 16:9): `social/out/hw5-flow-v2-1920x1080.mp4` (two scenes: inference + deployment)
+- Flow diagram v2 (26s, 16:9): `social/out/hw5-flow-v2-1920x1080.mp4` (two scenes: inference + deployment)
+- Workflow-Builder style (27s, 16:9): `social/out/hw5-workflow-1920x1080.mp4` — faithful to the reference image (4 group containers, neon bezier edges, ports, traveling packets, slim inspection bar, Docker dashed container in Scene B)
 - FAQ: `../FAQ.md`
 - Notebook: `../homework-5.ipynb`
