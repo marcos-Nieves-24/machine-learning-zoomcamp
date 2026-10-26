@@ -138,6 +138,7 @@ Tag: #machinelearning #fastapi #docker #mlops
 ## Assets
 
 - Cards: `social/out/hw5-*.png`
-- Video: `social/out/hw5-answers-1080x1350.mp4`
+- Answers video (10s, 4:5): `social/out/hw5-answers-1080x1350.mp4`
+- Data-flow video (15s, 16:9): `social/out/hw5-dataflow-1920x1080.mp4`
 - FAQ: `../FAQ.md`
 - Notebook: `../homework-5.ipynb`
