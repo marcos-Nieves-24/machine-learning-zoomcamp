@@ -87,6 +87,7 @@ box_centers = []
 boxes = []
 labels = []
 glows = []
+arrows = []
 for i, name in enumerate(stages):
     x = start_x + i * (box_w + gap)
     cx = x + box_w / 2
@@ -102,11 +103,14 @@ for i, name in enumerate(stages):
     lab = ax.text(cx, y_box + 16, name, fontsize=20, color=TEXT, weight="bold",
                   ha="center", zorder=4)
     labels.append(lab)
-    # arrow
+    # animated arrow (drawn progressively)
     if i < n - 1:
-        ax.annotate("", xy=(x + box_w + 6, y_box),
-                    xytext=(x + box_w + gap - 6, y_box),
-                    arrowprops=dict(arrowstyle="->", color=HAIRLINE, lw=2.5, zorder=2))
+        arrow_line, = ax.plot([], [], color=GOLD, lw=2.5, zorder=2, solid_capstyle="round")
+        # arrowhead marker at end
+        arrow_head = ax.plot([], [], marker=">", color=GOLD, markersize=10, zorder=2, linestyle="None")[0]
+        arrows.append((arrow_line, arrow_head, x + box_w, x + box_w + gap))
+    else:
+        arrows.append(None)
 
 # data panel
 panel_y = 150
@@ -176,7 +180,6 @@ def update(frame):
     if active < n - 1:
         x0 = box_centers[active]
         x1 = box_centers[active + 1]
-        # move during second half of stage
         if local > 0.5:
             p = (local - 0.5) / 0.5
             px = x0 + (x1 - x0) * p
@@ -188,6 +191,30 @@ def update(frame):
     else:
         packet.set_center((box_centers[-1], y_box))
         packet.set_alpha(0.0)
+
+    # animate arrows: completed stages fully drawn; active stage draws progressively
+    for i, arr in enumerate(arrows):
+        if arr is None:
+            continue
+        line, head, xa, xb = arr
+        if i < active:
+            line.set_data([xa, xb], [y_box, y_box])
+            head.set_data([xb], [y_box])
+        elif i == active:
+            if local > 0.3:
+                p = min(1.0, (local - 0.3) / 0.4)
+                xc = xa + (xb - xa) * p
+                line.set_data([xa, xc], [y_box, y_box])
+                if p >= 0.95:
+                    head.set_data([xc], [y_box])
+                else:
+                    head.set_data([], [])
+            else:
+                line.set_data([], [])
+                head.set_data([], [])
+        else:
+            line.set_data([], [])
+            head.set_data([], [])
 
     # gauge fills only at final stage
     if active == n - 1:
