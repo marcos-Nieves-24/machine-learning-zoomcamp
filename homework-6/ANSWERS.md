@@ -13,3 +13,4 @@ Prep: fillna(0), 60/20/20 split (`random_state=1`), DictVectorizer.
 | Q6 | **0.1** | val RMSE 1.7248 vs 1.8265 with eta=0.3 |
 
 To do: submit at https://courses.datatalks.club/ml-zoomcamp-2026/homework/hw06 (deadline Nov 2, 23:00) + Learning in Public post.
+FAQ contribution (optional): https://github.com/DataTalksClub/faq/issues/544
