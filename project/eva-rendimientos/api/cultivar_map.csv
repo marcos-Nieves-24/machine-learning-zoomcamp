@@ -1,0 +1,130 @@
+cultivo_norm,cultivo,grupo_norm,ciclo_norm
+acelga,Acelga,hortalizas,transitorio
+achiote,Achiote,"cultivos para condimentos, bebidas medicinales y aromaticas",permanente
+achira,ACHIRA,tuberculos y platanos,anual
+aguacate,AGUACATE,frutales,permanente
+ahuyama,Ahuyama,hortalizas,transitorio
+aji,Ají,hortalizas,transitorio
+ajo,AJO,hortalizas,transitorio
+ajonjoli,Ajonjolí,oleaginosas,transitorio
+albahaca,ALBAHACA,"plantas aromaticas, condimentarias y medicinales",permanente
+algodon,ALGODON,fibras,transitorio
+apio,APIO,hortalizas,transitorio
+arandano,Arándano,frutales,permanente
+araza,ARAZA,frutales,permanente
+arracacha,ARRACACHA,tuberculos y platanos,anual
+arroz,Arroz,cereales,transitorio
+arveja,Arveja,leguminosas,transitorio
+asai,Asaí,frutales,permanente
+avena,AVENA,cereales,transitorio
+badea,Badea,frutales,permanente
+bananito,BANANITO,frutales,permanente
+banano,Banano,frutales,permanente
+batata,Batata,hortalizas,transitorio
+berenjena,BERENJENA,hortalizas,transitorio
+borojo,BOROJO,frutales,permanente
+brevo,BREVO,frutales,permanente
+brocoli,Brócoli,hortalizas,transitorio
+cacao,CACAO,otros permanentes,permanente
+cafe,CAFE,otros permanentes,permanente
+"calabacin, calabaza","Calabacín, calabaza",hortalizas,transitorio
+cana,Caña,cultivos tropicales tradicionales,permanente
+cana azucarera,CAÑA AZUCARERA,otros permanentes,permanente
+cana miel,CAÑA MIEL,otros permanentes,permanente
+cana panelera,CAÑA PANELERA,otros permanentes,permanente
+cardamomo,CARDAMOMO,"plantas aromaticas, condimentarias y medicinales",permanente
+caucho,CAUCHO,forestales,permanente
+cebada,CEBADA,cereales,transitorio
+cebolla de bulbo,CEBOLLA DE BULBO,hortalizas,transitorio
+cebolla de rama,CEBOLLA DE RAMA,hortalizas,transitorio
+chirimoya,CHIRIMOYA,frutales,permanente
+cholupa,CHOLUPA,frutales,permanente
+chontaduro,CHONTADURO,frutales,permanente
+cilantro,CILANTRO,hortalizas,transitorio
+cimarron,Cimarrón,"cultivos para condimentos, bebidas medicinales y aromaticas",transitorio
+ciruela,CIRUELA,frutales,permanente
+citricos,CITRICOS,frutales,permanente
+coco,Coco,frutales,permanente
+col,COL,hortalizas,transitorio
+coliflor,COLIFLOR,hortalizas,transitorio
+copoazu,COPOAZU,frutales,permanente
+curuba,CURUBA,frutales,permanente
+durazno,DURAZNO,frutales,permanente
+durazno o albaricoque,Durazno o albaricoque,frutales,permanente
+espinaca,ESPINACA,hortalizas,transitorio
+feijoa,Feijoa,frutales,permanente
+fique,FIQUE,fibras,permanente
+flores y follajes,FLORES Y FOLLAJES,flores y follajes,permanente
+fresa,FRESA,frutales,permanente
+frijol,FRIJOL,leguminosas,transitorio
+granadilla,GRANADILLA,frutales,permanente
+guanabana,GUANABANA,frutales,permanente
+guandul,GUANDUL,leguminosas,anual
+guatila,Guatila,hortalizas,transitorio
+guayaba,GUAYABA,frutales,permanente
+gulupa,GULUPA,frutales,permanente
+gulupa o cholupa,Gulupa o cholupa,frutales,permanente
+haba,Haba,leguminosas,transitorio
+habichuela,HABICHUELA,leguminosas,transitorio
+heliconia,HELICONIA,flores y follajes,permanente
+higo,HIGO,frutales,permanente
+hortalizas varias,HORTALIZAS VARIAS,hortalizas,transitorio
+lechuga,LECHUGA,hortalizas,transitorio
+lima,LIMA,frutales,permanente
+limon,LIMON,frutales,permanente
+lulo,LULO,frutales,permanente
+macadamia,Macadamia,frutales,permanente
+maiz,MAIZ,cereales,transitorio
+maiz forrajero,MAIZ FORRAJERO,cereales,transitorio
+malanga,MALANGA,tuberculos y platanos,anual
+"malanga, achin, yota, papa china, bore","Malanga, achín, yota, papa china, bore",raices y tuberculos,transitorio
+mandarina,MANDARINA,frutales,permanente
+mango,MANGO,frutales,permanente
+mangostino,MANGOSTINO,frutales,permanente
+mani,MANI,leguminosas,transitorio
+manzana,MANZANA,frutales,permanente
+maracuya,MARACUYA,frutales,permanente
+maranon,MARAÑON,frutales,permanente
+melon,MELON,frutales,transitorio
+mora,MORA,frutales,permanente
+name,ÑAME,tuberculos y platanos,anual
+naranja,NARANJA,frutales,permanente
+nispero,NISPERO,frutales,permanente
+otras hortalizas,Otras hortalizas,hortalizas,transitorio
+otros citricos,Otros cítricos,frutales,permanente
+palma de aceite,PALMA DE ACEITE,oleaginosas,permanente
+palmito,PALMITO,hortalizas,permanente
+papa,PAPA,tuberculos y platanos,transitorio
+papaya,Papaya,frutales,permanente
+patilla,PATILLA,frutales,transitorio
+pepino cohombro,PEPINO COHOMBRO,hortalizas,transitorio
+pepino guiso,PEPINO GUISO,hortalizas,transitorio
+pera,PERA,frutales,permanente
+perejil,Perejil,"cultivos para condimentos, bebidas medicinales y aromaticas",transitorio
+pimenton,PIMENTON,hortalizas,transitorio
+pimienta,PIMIENTA,"plantas aromaticas, condimentarias y medicinales",permanente
+pina,PIÑA,frutales,permanente
+pitahaya,Pitahaya,frutales,permanente
+plantas aromaticas,Plantas aromáticas,"cultivos para condimentos, bebidas medicinales y aromaticas",transitorio
+platano,PLATANO,tuberculos y platanos,permanente
+pomelo,POMELO,frutales,permanente
+quinua,QUINUA,cereales,transitorio
+remolacha,REMOLACHA,hortalizas,transitorio
+repollo,REPOLLO,hortalizas,transitorio
+sabila,Sábila,"cultivos para condimentos, bebidas medicinales y aromaticas",permanente
+sacha inchi,SACHA INCHI,oleaginosas,permanente
+sorgo,SORGO,cereales,transitorio
+soya,SOYA,leguminosas,transitorio
+tabaco,Tabaco,cultivos tropicales tradicionales,transitorio
+tabaco negro,TABACO NEGRO,otros permanentes,anual
+tabaco rubio,TABACO RUBIO,otros transitorios,transitorio
+tangelo,TANGELO,frutales,permanente
+tomate,TOMATE,hortalizas,transitorio
+tomate de arbol,TOMATE DE ARBOL,frutales,permanente
+trigo,TRIGO,cereales,transitorio
+uchuva,UCHUVA,frutales,permanente
+ulluco,ULLUCO,tuberculos y platanos,transitorio
+uva,UVA,frutales,permanente
+yuca,YUCA,tuberculos y platanos,anual
+zanahoria,ZANAHORIA,hortalizas,transitorio
+zapote,ZAPOTE,frutales,permanente

@@ -1,0 +1,8 @@
+# Datos crudos reproducibles vía src/ingest.py (57MB) y limpios vía src/clean.py.
+# Solo se versionan logs, notebook y código.
+data/eva_raw/*.csv
+data/eva_clean/*.csv
+data/eva_clean/*.parquet
+__pycache__/
+*.pyc
+.venv/

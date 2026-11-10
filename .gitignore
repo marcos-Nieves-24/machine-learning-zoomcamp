@@ -11,3 +11,19 @@ wheels/
 
 # Datasets (regenerate with the wget commands documented in the homework)
 homework-3/course_lead_scoring_2026.csv
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
+# OpenCode atl metadata
+.atl/
+# Untitled scratch notebooks
+Untitled*.ipynb
+# Large media
+*.mp4
+# EVA project: regenerable data & binaries
+project/eva-rendimientos/data/
+project/eva-rendimientos/models/*.joblib
+project/eva-rendimientos/api/*.joblib
+project/eva-rendimientos/api/history.csv
+# Loose images in homework-3
+homework-3/*.png

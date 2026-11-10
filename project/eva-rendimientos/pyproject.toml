@@ -1,0 +1,23 @@
+[project]
+name = "eva-rendimientos"
+version = "0.1.0"
+description = "Predicción de rendimiento agrícola (t/ha) por municipio y cultivo en Colombia (EVA 2006-2025)"
+requires-python = ">=3.10"
+dependencies = [
+    "pandas>=2.0",
+    "numpy>=1.26",
+    "scikit-learn>=1.4",
+    "lightgbm>=4.0",
+    "xgboost>=2.0",
+    "optuna>=3.5",
+    "shap>=0.45",
+    "joblib>=1.4",
+    "matplotlib>=3.8",
+    "seaborn>=0.13",
+    "nbformat>=5.9",
+    "nbconvert>=7.0",
+    "fastapi>=0.110",
+    "uvicorn>=0.29",
+    "pydantic>=2.0",
+    "requests>=2.31",
+]

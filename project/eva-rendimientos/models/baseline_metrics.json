@@ -1,0 +1,100 @@
+{
+  "global_mean": 9.396471112516082,
+  "features": [
+    "area_sembrada_log",
+    "is_B",
+    "is_anual",
+    "hist_len",
+    "r_lag1",
+    "r_lag2",
+    "r_roll3",
+    "r_roll5",
+    "cultivo_norm_te",
+    "municipio_norm_te",
+    "cod_dep_te",
+    "grupo_norm_te",
+    "grupo__cereales",
+    "grupo__cultivos_para_condimentos_bebidas_medicinales_y_aromaticas",
+    "grupo__cultivos_tropicales_tradicionales",
+    "grupo__fibras",
+    "grupo__flores_y_follajes",
+    "grupo__forestales",
+    "grupo__frutales",
+    "grupo__hortalizas",
+    "grupo__leguminosas",
+    "grupo__oleaginosas",
+    "grupo__otros_permanentes",
+    "grupo__otros_transitorios",
+    "grupo__plantas_aromaticas_condimentarias_y_medicinales",
+    "grupo__raices_y_tuberculos",
+    "grupo__tuberculos_y_platanos",
+    "ciclo__anual",
+    "ciclo__permanente",
+    "ciclo__transitorio"
+  ],
+  "splits": {
+    "train": {
+      "n": 237255
+    },
+    "val": {
+      "n": 47007
+    },
+    "test": {
+      "n": 70644
+    }
+  },
+  "media_historica": {
+    "val": {
+      "rmse": 9.77206070317346,
+      "mae": 4.969929545446658,
+      "r2": 0.5614375135537844,
+      "mape_pct": 77.41476958544082,
+      "medape_pct": 36.404740644532836,
+      "n": 47007
+    },
+    "test": {
+      "rmse": 10.020246662199316,
+      "mae": 5.017034515906759,
+      "r2": 0.575958689680465,
+      "mape_pct": 69.05534706115328,
+      "medape_pct": 34.93258345951402,
+      "n": 70644
+    }
+  },
+  "linear": {
+    "val": {
+      "rmse": 6.759139527527796,
+      "mae": 3.444781195783386,
+      "r2": 0.790182363104676,
+      "mape_pct": 97.15690255032779,
+      "medape_pct": 28.76510661069198,
+      "n": 47007
+    },
+    "test": {
+      "rmse": 6.058461289909736,
+      "mae": 2.977524398550127,
+      "r2": 0.8449841815275267,
+      "mape_pct": 84.61183174424396,
+      "medape_pct": 22.625696786737347,
+      "n": 70644
+    }
+  },
+  "random_forest": {
+    "val": {
+      "rmse": 6.070631483306905,
+      "mae": 2.6266373066564617,
+      "r2": 0.8307506895279798,
+      "mape_pct": 45.98945146759574,
+      "medape_pct": 16.645128205128223,
+      "n": 47007
+    },
+    "test": {
+      "rmse": 5.397659118127378,
+      "mae": 2.2651597507408083,
+      "r2": 0.8769554873109677,
+      "mape_pct": 36.68118018941726,
+      "medape_pct": 14.488722222222192,
+      "n": 70644
+    }
+  }
+}
