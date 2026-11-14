@@ -32,3 +32,4 @@ homework-3/*.png
 *.png
 .playwright-mcp/
 !project/beebuzz/docs/screenshots/*.png
+!project/beebuzz/reports/*.png

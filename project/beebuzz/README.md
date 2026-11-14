@@ -9,7 +9,7 @@
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-f5a623?style=flat-square&labelColor=0f1117)](https://creativecommons.org/licenses/by/4.0/)
 [![Python 3.11+](https://img.shields.io/badge/python-3.11+-f5a623?style=flat-square&labelColor=0f1117)](https://www.python.org/downloads/)
 [![ML Zoomcamp 2026](https://img.shields.io/badge/ML%20Zoomcamp-2026-f5a623?style=flat-square&labelColor=0f1117)](https://github.com/DataTalksClub/machine-learning-zoomcamp)
-[![Tests](https://img.shields.io/badge/tests-3%20passing-f5a623?style=flat-square&labelColor=0f1117)](https://github.com/marcos-Nieves-24/machine-learning-zoomcamp/tree/main/project/beebuzz/tests)
+[![Tests](https://img.shields.io/badge/tests-4%20passing-f5a623?style=flat-square&labelColor=0f1117)](https://github.com/marcos-Nieves-24/machine-learning-zoomcamp/tree/main/project/beebuzz/tests)
 [![Docker](https://img.shields.io/badge/docker-ready-f5a623?style=flat-square&labelColor=0f1117)](https://github.com/marcos-Nieves-24/machine-learning-zoomcamp/tree/main/project/beebuzz/api/Dockerfile)
 
 </div>
@@ -22,7 +22,7 @@
   <img src="https://github.com/marcos-Nieves-24/machine-learning-zoomcamp/raw/main/project/beebuzz/docs/screenshots/dashboard-main.png" width="550" alt="BeeBuzz Dashboard - Predict tab"/>
 </a>
 
-*Predict tab — click to enlarge.*
+*Predict tab (click to enlarge).*
 
 <details>
 <summary>More screenshots (Results, About)</summary>
@@ -39,7 +39,7 @@
   <img src="https://github.com/marcos-Nieves-24/machine-learning-zoomcamp/raw/main/project/beebuzz/docs/screenshots/dashboard-about.png" width="550" alt="BeeBuzz Dashboard - About tab"/>
 </a>
 
-*About tab — model info and SHAP.*
+*About tab with model info and SHAP plots.*
 
 </details>
 
@@ -59,18 +59,13 @@
 
 ## What it does
 
-BeeBuzz classifies bee species from their buzzing sounds using acoustic features (fundamental frequency, MFCC). It also distinguishes between two types of buzz:
-
-- **Floral buzz** — the bee vibrating a flower to extract pollen (buzz pollination / sonication)
-- **Flight buzz** — the bee flying between flowers
-
-A second model classifies the buzz type, which matters for pollination monitoring: a floral buzz means the bee is actively pollinating, while a flight buzz means it's just passing through.
+BeeBuzz reads buzzing sounds through acoustic features like fundamental frequency and MFCC, and predicts which of five bee species made the sound. A second model predicts the buzz type. Floral buzzes happen when a bee vibrates a flower to release pollen, so they signal active pollination. Flight buzzes happen between flowers.
 
 ---
 
 ## Results
 
-Trained and evaluated with an honest protocol: stratified 80/20 holdout (seed 42) reserved BEFORE tuning; 5-fold CV + Optuna (20 trials) on train only; final eval once on untouched holdout (n=40).
+We held out a stratified 20% (seed 42, n=40) before any tuning, ran 5-fold CV with 20 Optuna trials on the remaining 80%, and scored the winner once on the holdout.
 
 ### Species classification (5 classes)
 
@@ -83,21 +78,28 @@ Trained and evaluated with an honest protocol: stratified 80/20 holdout (seed 42
 | RF (tuned, Optuna) | 79.4% | 0.80 | — | — |
 | **RF (default — best)** | **80.0%** | **0.80** | **80.0%** | **0.80** |
 
-Holdout per species (n=40, 8 per class): *Bombus morio* F1 0.88, Oxaea verdinha 0.88, Banguela sp. 0.74, Xylocopa pretinha 0.80, Centris cinza 0.71 (recall 0.62 — the weakest).
+Per species on the holdout (8 samples each): *Bombus morio* F1 0.88, Oxaea verdinha 0.88, Banguela sp. 0.74, Xylocopa pretinha 0.80, Centris cinza 0.71 with recall 0.62, the weakest of the five.
 
-**Do NOT present 80% as field-ready accuracy.** With n=40 the 95% interval is wide, and lab recordings do not represent field conditions.
+That 80% comes from 40 lab recordings, so read it as a midterm estimate rather than expected field performance.
 
 ### Calibration (holdout)
 
-Brier (OvR mean) 0.084, ECE 0.31. The confidence returned by the API is RF vote frequency, **not** a calibrated probability — the model is overconfident.
+Brier (OvR mean) 0.084, ECE 0.31. The API returns the forest vote share as confidence, which runs overconfident. It is not a calibrated probability.
+
+<details>
+<summary>Confusion matrix and calibration curve</summary>
+
+<br/>
 
 <img src="https://github.com/marcos-Nieves-24/machine-learning-zoomcamp/raw/main/project/beebuzz/reports/confusion_matrix_holdout.png" width="600" alt="Confusion matrix holdout"/>
 
-*Confusion matrix — holdout (n=40).*
+*Confusion matrix, holdout (n=40).*
 
 <img src="https://github.com/marcos-Nieves-24/machine-learning-zoomcamp/raw/main/project/beebuzz/reports/calibration_holdout.png" width="500" alt="Calibration holdout"/>
 
-*Calibration curve (max-prob) — holdout. Below diagonal = overconfident.*
+*Calibration curve on max probability. Points below the diagonal mean overconfidence.*
+
+</details>
 
 ### Buzz type classification (floral vs flight)
 
@@ -105,12 +107,13 @@ Brier (OvR mean) 0.084, ECE 0.31. The confidence returned by the API is RF vote 
 |-------|--------------------|
 | RF (default) | 100% |
 
-Caveat: filename prefix (`B_` floral vs `V_` flight) perfectly predicts the label. This likely reflects recording setup, not biology. Treat as a data-quality warning, not a biological result.
+One caution: filename prefix (`B_` floral vs `V_` flight) predicts the label perfectly, so this score likely reflects recording setup rather than biology. Read it as a data quality warning, not a biological result.
 
 <details>
 <summary>Why is buzz type ~100% but species only 80%?</summary>
 
-Floral sonication and flight buzz are acoustically very different (duration, frequency, amplitude). Distinguishing 5 bee species requires detecting subtle differences in timbre (MFCC shape), which is harder. The 99% is realistic — not leakage — because each event is an independent recording.
+Floral sonication and flight buzz differ a lot in duration, frequency and amplitude. Telling five species apart means catching small differences in timbre, which is harder. Each event is an independent recording, so the gap reflects task difficulty, not a leak between train and test.
+
 </details>
 
 ### Comparison with the source paper
@@ -118,13 +121,13 @@ Floral sonication and flight buzz are acoustically very different (duration, fre
 <details>
 <summary>Expand to see detailed comparison</summary>
 
-The original paper reports 95% accuracy (combined) using 182 features (including cinematic band-power extracted from raw audio files) and 1000 random train/test splits. Our 80.0% (holdout, n=40) uses 67 features from the pre-extracted CSV with an honest 80/20 holdout. The gap is explained by:
+The original paper reports 95% accuracy (combined) using 182 features (cinematic band power from raw audio files among them) and 1000 random train/test splits. Our 80.0% (holdout, n=40) uses 67 features from the pre-extracted CSV with one held out split. The gap comes down to three things:
 
-1. **Additional cinematic features** (band-power 310–400 Hz, etc.) that require raw .txt files not included in the CSV.
-2. **Validation strategy** — 1000 random splits (33% hold-out) vs. 5-fold stratified CV. Random splits can inflate metrics through data leakage between events from the same individual.
-3. **Dataset size** — 518 samples (paper) vs. 200 events (our subset).
+1. Extra cinematic features (band power around 310 to 400 Hz and similar) that need raw .txt files not included in the CSV.
+2. Validation: 1000 random splits with a 33% holdout against our single stratified 80/20 split. Random resampling can leak events from the same individual across splits and inflate the score.
+3. Sample size: 518 samples in the paper against 200 events in our subset.
 
-We also added **SHAP explainability** and **Optuna tuning** (which, honestly, did not improve over defaults — a result worth documenting).
+Tuning did not beat the defaults, which is worth reporting as is. SHAP is our addition for explaining predictions.
 
 </details>
 
@@ -155,19 +158,14 @@ graph LR
     D --> F[Buzz type floral/flight]
 ```
 
-The model receives pre-extracted acoustic features (fundamental frequency, MFCC) and returns:
+The model takes pre-extracted features and returns the predicted species with a confidence score between 0 and 1, the full probability distribution across species, and the buzz type.
 
-- **Species** — which bee is buzzing
-- **Confidence** — how sure the model is (0–1)
-- **Probabilities** — score for each species
-- **Buzz type** — floral (pollinating) or flight (just passing)
-
-SHAP analysis shows that **fundamental frequency (ffreq)** is the most discriminative feature for all species, followed by the first 3 MFCCs and duration.
+SHAP puts fundamental frequency first for every species, then the first three MFCCs and duration.
 
 <details>
 <summary>View SHAP summary plot</summary>
 
-<img src="https://github.com/marcos-Nieves-24/machine-learning-zoomcamp/blob/main/project/beebuzz/reports/shap_summary.png?raw=true" width="600" alt="SHAP Summary"/>
+<img src="https://github.com/marcos-Nieves-24/machine-learning-zoomcamp/raw/main/project/beebuzz/reports/shap_summary.png" width="600" alt="SHAP Summary"/>
 
 </details>
 
@@ -261,7 +259,7 @@ beebuzz/
 │   ├── variants/                   # Black, white, mono, square, favicon, app-icon
 │   └── reports/                    # SHAP plots
 ├── tests/
-│   └── smoke_test.py               # 3 smoke tests
+│   └── smoke_test.py               # 4 smoke tests
 ├── scripts/
 │   └── download_data.py            # Download dataset from GitHub
 ├── reports/
@@ -281,11 +279,11 @@ beebuzz/
 
 ## Limitations
 
-- **5 species only** — subset of the 16 in the source paper.
-- **200 events** — small dataset, results may not generalize.
-- **Lab recordings** — no field noise, distance, or weather variation.
-- **No audio endpoint** — the API receives pre-extracted features, not raw audio. Audio upload is planned for the capstone.
-- **Morphotype labels** — some species are identified by morphotype (common names in Portuguese), not formal taxonomy.
+- Only five species, a subset of the 16 in the source paper.
+- 200 events is small, so results may not generalize.
+- Lab recordings with no field noise, distance or weather variation.
+- The API takes pre-extracted features, not raw audio.
+- Some species carry morphotype labels (common names in Portuguese) rather than formal taxonomy.
 
 ---
 
