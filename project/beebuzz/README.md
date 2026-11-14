@@ -86,7 +86,15 @@ Holdout per species (n=40, 8 per class): *Bombus morio* F1 0.88, Oxaea verdinha 
 
 ### Calibration (holdout)
 
-Brier (OvR mean) 0.084, ECE 0.31. The confidence returned by the API is RF vote frequency, **not** a calibrated probability — the model is overconfident. See `reports/calibration_holdout.png`.
+Brier (OvR mean) 0.084, ECE 0.31. The confidence returned by the API is RF vote frequency, **not** a calibrated probability — the model is overconfident.
+
+<img src="https://github.com/marcos-Nieves-24/machine-learning-zoomcamp/raw/main/project/beebuzz/reports/confusion_matrix_holdout.png" width="600" alt="Confusion matrix holdout"/>
+
+*Confusion matrix — holdout (n=40).*
+
+<img src="https://github.com/marcos-Nieves-24/machine-learning-zoomcamp/raw/main/project/beebuzz/reports/calibration_holdout.png" width="500" alt="Calibration holdout"/>
+
+*Calibration curve (max-prob) — holdout. Below diagonal = overconfident.*
 
 ### Buzz type classification (floral vs flight)
 
