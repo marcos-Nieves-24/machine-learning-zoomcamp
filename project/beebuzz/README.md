@@ -130,7 +130,7 @@ SHAP analysis shows that **fundamental frequency (ffreq)** is the most discrimin
 <details>
 <summary>View SHAP summary plot</summary>
 
-<img src="https://github.com/marcos-Nieves-24/machine-learning-zoomcamp/raw/main/project/beebuzz/reports/shap_summary.png" width="600" alt="SHAP Summary"/>
+<img src="https://github.com/marcos-Nieves-24/machine-learning-zoomcamp/blob/main/project/beebuzz/reports/shap_summary.png?raw=true" width="600" alt="SHAP Summary"/>
 
 </details>
 
