@@ -17,6 +17,12 @@
 
 </div>
 
+<div align="center">
+
+<img src="https://github.com/marcos-Nieves-24/machine-learning-zoomcamp/raw/main/project/beebuzz/dashboard/bees-divider.svg" width="600" alt=""/>
+
+</div>
+
 ---
 
 <div align="center">

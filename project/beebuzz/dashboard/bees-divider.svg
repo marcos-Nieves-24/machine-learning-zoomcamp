@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 80" width="800" height="80">
+  <title>Flying bees divider</title>
+  <!-- dotted flight paths -->
+  <path d="M -20 55 Q 200 20, 400 50 T 820 40" fill="none" stroke="#f5a623" stroke-width="1.5" stroke-dasharray="4 6" opacity="0.35"/>
+  <path d="M -20 30 Q 250 60, 450 30 T 820 55" fill="none" stroke="#f5a623" stroke-width="1.5" stroke-dasharray="4 6" opacity="0.22"/>
+  <!-- bee 1 -->
+  <g>
+    <animateTransform attributeName="transform" type="translate" from="-40 0" to="840 0" dur="14s" begin="-6s" repeatCount="indefinite"/>
+    <ellipse cx="0" cy="38" rx="10" ry="6" fill="#f5a623"/>
+    <rect x="-6" y="35" width="12" height="2.5" rx="1.2" fill="#0f1117" opacity="0.7"/>
+    <rect x="-6" y="40" width="12" height="2.5" rx="1.2" fill="#0f1117" opacity="0.7"/>
+    <ellipse cx="-2" cy="29" rx="7" ry="3.5" fill="#f5a623" opacity="0.45">
+      <animate attributeName="rx" values="7;4;7" dur="0.25s" repeatCount="indefinite"/>
+    </ellipse>
+    <circle cx="9" cy="36" r="1.6" fill="#0f1117"/>
+  </g>
+  <!-- bee 2 (slower, lower) -->
+  <g>
+    <animateTransform attributeName="transform" type="translate" from="840 0" to="-40 0" dur="21s" begin="-15s" repeatCount="indefinite"/>
+    <g transform="translate(0,58) scale(0.7)">
+      <ellipse cx="0" cy="0" rx="10" ry="6" fill="#f5a623"/>
+      <rect x="-6" y="-3" width="12" height="2.5" rx="1.2" fill="#0f1117" opacity="0.7"/>
+      <rect x="-6" y="2" width="12" height="2.5" rx="1.2" fill="#0f1117" opacity="0.7"/>
+      <ellipse cx="2" cy="-9" rx="7" ry="3.5" fill="#f5a623" opacity="0.45">
+        <animate attributeName="rx" values="7;4;7" dur="0.3s" repeatCount="indefinite"/>
+      </ellipse>
+      <circle cx="-9" cy="-2" r="1.6" fill="#0f1117"/>
+    </g>
+  </g>
+  <!-- bee 3 (small, fast, upper) -->
+  <g>
+    <animateTransform attributeName="transform" type="translate" from="-30 0" to="830 0" dur="9s" begin="-3s" repeatCount="indefinite"/>
+    <g transform="translate(0,16) scale(0.5)">
+      <ellipse cx="0" cy="0" rx="10" ry="6" fill="#f5a623"/>
+      <rect x="-6" y="-3" width="12" height="2.5" rx="1.2" fill="#0f1117" opacity="0.7"/>
+      <ellipse cx="-2" cy="-9" rx="7" ry="3.5" fill="#f5a623" opacity="0.45">
+        <animate attributeName="rx" values="7;4;7" dur="0.2s" repeatCount="indefinite"/>
+      </ellipse>
+      <circle cx="9" cy="-2" r="1.6" fill="#0f1117"/>
+    </g>
+  </g>
+</svg>
