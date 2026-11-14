@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="https://raw.githubusercontent.com/marcos-Nieves-24/machine-learning-zoomcamp/main/project/beebuzz/dashboard/logo.svg" width="120" alt="BeeBuzz Logo"/>
+<img src="https://github.com/marcos-Nieves-24/machine-learning-zoomcamp/raw/main/project/beebuzz/dashboard/logo.svg" width="120" alt="BeeBuzz Logo"/>
 
 # BeeBuzz
 
@@ -18,8 +18,8 @@
 
 <div align="center">
 
-<a href="https://raw.githubusercontent.com/marcos-Nieves-24/machine-learning-zoomcamp/main/project/beebuzz/docs/screenshots/dashboard-main.png">
-  <img src="https://raw.githubusercontent.com/marcos-Nieves-24/machine-learning-zoomcamp/main/project/beebuzz/docs/screenshots/dashboard-main.png" width="700" alt="BeeBuzz Dashboard"/>
+<a href="https://github.com/marcos-Nieves-24/machine-learning-zoomcamp/raw/main/project/beebuzz/docs/screenshots/dashboard-main.png">
+  <img src="https://github.com/marcos-Nieves-24/machine-learning-zoomcamp/raw/main/project/beebuzz/docs/screenshots/dashboard-main.png" width="700" alt="BeeBuzz Dashboard"/>
 </a>
 
 *BeeBuzz dashboard — light theme, bilingual (EN/ES). Click to enlarge.*
@@ -130,7 +130,7 @@ SHAP analysis shows that **fundamental frequency (ffreq)** is the most discrimin
 <details>
 <summary>View SHAP summary plot</summary>
 
-<img src="https://raw.githubusercontent.com/marcos-Nieves-24/machine-learning-zoomcamp/main/project/beebuzz/reports/shap_summary.png" width="600" alt="SHAP Summary"/>
+<img src="https://github.com/marcos-Nieves-24/machine-learning-zoomcamp/raw/main/project/beebuzz/reports/shap_summary.png" width="600" alt="SHAP Summary"/>
 
 </details>
 
@@ -271,7 +271,7 @@ beebuzz/
 
 <div align="center">
 
-<img src="https://raw.githubusercontent.com/marcos-Nieves-24/machine-learning-zoomcamp/main/project/beebuzz/dashboard/logo-small.svg" width="32" alt="BeeBuzz"/>
+<img src="https://github.com/marcos-Nieves-24/machine-learning-zoomcamp/raw/main/project/beebuzz/dashboard/logo-small.svg" width="32" alt="BeeBuzz"/>
 
 *BeeBuzz — ML Zoomcamp 2026 Midterm*
 
