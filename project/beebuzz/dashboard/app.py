@@ -71,9 +71,10 @@ MFCC) extracted from audio.
 - Oxaea verdinha (*Oxaea flavescens*)
 - Xylocopa pretinha (*Xylocopa* sp.)
 
-**Performance (5-fold CV):**
-- Species: 83.5% accuracy (RF, 67 features)
-- Buzz type (floral/flight): 99.0% accuracy
+**Performance (honest 80/20 holdout, n=40):**
+- Species: 80.0% accuracy (RF, 67 features)
+- Buzz type (floral/flight): 100% — with filename-prefix caveat
+- Calibration: Brier 0.084, ECE 0.31 (overconfident)
 
 **Data source:** Mendeley Data — Dual-Signal Buzz Pollination (CC BY 4.0).
 """,
@@ -146,9 +147,10 @@ MFCC) extraídas del audio.
 - Oxaea verdinha (*Oxaea flavescens*)
 - Xylocopa pretinha (*Xylocopa* sp.)
 
-**Rendimiento (5-fold CV):**
-- Especies: 83.5% accuracy (RF, 67 features)
-- Tipo de buzz (floral/flight): 99.0% accuracy
+**Rendimiento (holdout 80/20 honesto, n=40):**
+- Especies: 80.0% accuracy (RF, 67 features)
+- Tipo de buzz (floral/flight): 100% — con caveat de prefijo de archivo
+- Calibración: Brier 0.084, ECE 0.31 (overconfident)
 
 **Fuente de datos:** Mendeley Data — Dual-Signal Buzz Pollination (CC BY 4.0).
 """,

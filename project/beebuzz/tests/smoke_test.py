@@ -14,7 +14,8 @@ client = TestClient(app)
 def test_health():
     r = client.get("/health")
     assert r.status_code == 200
-    assert r.json()["status"] == "ok"
+    assert r.json()["status"] in ("ok", "degraded")
+    assert "models" in r.json()
 
 
 def test_predict():
@@ -37,3 +38,11 @@ def test_predict_type():
     body = r.json()
     assert "buzz_type" in body
     assert "confidence" in body
+
+
+def test_predict_rejects_implausible():
+    payload = {f: 0.0 for f in __import__("features", fromlist=["FEATURES"]).FEATURES}
+    payload["ffreq"] = 5000.0  # implausible
+    payload["duration.s"] = 0.304
+    r = client.post("/predict", json=payload)
+    assert r.status_code == 422

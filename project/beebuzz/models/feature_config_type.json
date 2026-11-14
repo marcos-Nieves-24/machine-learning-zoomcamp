@@ -77,7 +77,6 @@
     "floral": 1
   },
   "metrics": {
-    "accuracy": 0.99,
-    "macro_f1": 0.99
+    "accuracy_holdout": 1.0
   }
 }

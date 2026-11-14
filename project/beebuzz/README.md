@@ -67,27 +67,37 @@ A second model classifies the buzz type, which matters for pollination monitorin
 
 ## Results
 
-Trained and evaluated with 5-fold stratified cross-validation on 200 sound events from 5 bee species.
+Trained and evaluated with an honest protocol: stratified 80/20 holdout (seed 42) reserved BEFORE tuning; 5-fold CV + Optuna (20 trials) on train only; final eval once on untouched holdout (n=40).
 
 ### Species classification (5 classes)
 
-| Model | Accuracy | Macro-F1 |
-|-------|----------|----------|
-| Dummy (majority) | 20.0% | 0.07 |
-| LDA | 66.5% | 0.67 |
-| Logistic Regression | 74.5% | 0.75 |
-| XGBoost (default) | 81.5% | 0.82 |
-| RF (tuned, Optuna) | 83.0% | 0.83 |
-| **RF (default — best)** | **83.5%** | **0.83** |
+| Model | Train CV acc | Train CV macro-F1 | Holdout acc | Holdout macro-F1 |
+|-------|--------------|-------------------|-------------|------------------|
+| Dummy (majority) | 18.8% | 0.13 | — | — |
+| LDA | 53.1% | 0.53 | — | — |
+| Logistic Regression | 65.6% | 0.66 | — | — |
+| XGBoost (default) | 77.5% | 0.78 | — | — |
+| RF (tuned, Optuna) | 79.4% | 0.80 | — | — |
+| **RF (default — best)** | **80.0%** | **0.80** | **80.0%** | **0.80** |
+
+Holdout per species (n=40, 8 per class): *Bombus morio* F1 0.88, Oxaea verdinha 0.88, Banguela sp. 0.74, Xylocopa pretinha 0.80, Centris cinza 0.71 (recall 0.62 — the weakest).
+
+**Do NOT present 80% as field-ready accuracy.** With n=40 the 95% interval is wide, and lab recordings do not represent field conditions.
+
+### Calibration (holdout)
+
+Brier (OvR mean) 0.084, ECE 0.31. The confidence returned by the API is RF vote frequency, **not** a calibrated probability — the model is overconfident. See `reports/calibration_holdout.png`.
 
 ### Buzz type classification (floral vs flight)
 
-| Model | Accuracy | Macro-F1 |
-|-------|----------|----------|
-| RF (default) | 99.0% | 0.99 |
+| Model | Holdout acc (n=40) |
+|-------|--------------------|
+| RF (default) | 100% |
+
+Caveat: filename prefix (`B_` floral vs `V_` flight) perfectly predicts the label. This likely reflects recording setup, not biology. Treat as a data-quality warning, not a biological result.
 
 <details>
-<summary>Why is buzz type 99% but species only 83.5%?</summary>
+<summary>Why is buzz type ~100% but species only 80%?</summary>
 
 Floral sonication and flight buzz are acoustically very different (duration, frequency, amplitude). Distinguishing 5 bee species requires detecting subtle differences in timbre (MFCC shape), which is harder. The 99% is realistic — not leakage — because each event is an independent recording.
 </details>
@@ -97,7 +107,7 @@ Floral sonication and flight buzz are acoustically very different (duration, fre
 <details>
 <summary>Expand to see detailed comparison</summary>
 
-The original paper reports 95% accuracy (combined) using 182 features (including cinematic band-power extracted from raw audio files) and 1000 random train/test splits. Our 83.5% uses 67 features from the pre-extracted CSV with stricter 5-fold CV. The gap is explained by:
+The original paper reports 95% accuracy (combined) using 182 features (including cinematic band-power extracted from raw audio files) and 1000 random train/test splits. Our 80.0% (holdout, n=40) uses 67 features from the pre-extracted CSV with an honest 80/20 holdout. The gap is explained by:
 
 1. **Additional cinematic features** (band-power 310–400 Hz, etc.) that require raw .txt files not included in the CSV.
 2. **Validation strategy** — 1000 random splits (33% hold-out) vs. 5-fold stratified CV. Random splits can inflate metrics through data leakage between events from the same individual.
