@@ -11,6 +11,9 @@
 [![ML Zoomcamp 2026](https://img.shields.io/badge/ML%20Zoomcamp-2026-f5a623?style=flat-square&labelColor=0f1117)](https://github.com/DataTalksClub/machine-learning-zoomcamp)
 [![Tests](https://img.shields.io/badge/tests-4%20passing-f5a623?style=flat-square&labelColor=0f1117)](https://github.com/marcos-Nieves-24/machine-learning-zoomcamp/tree/main/project/beebuzz/tests)
 [![Docker](https://img.shields.io/badge/docker-ready-f5a623?style=flat-square&labelColor=0f1117)](https://github.com/marcos-Nieves-24/machine-learning-zoomcamp/tree/main/project/beebuzz/api/Dockerfile)
+[![Streamlit App](https://img.shields.io/badge/Streamlit-Live%20Demo-f5a623?style=flat-square&labelColor=0f1117)](https://beebuzz-csqzda6ff5wtdlwicwuzcj.streamlit.app/)
+
+**Live demo:** https://beebuzz-csqzda6ff5wtdlwicwuzcj.streamlit.app/
 
 </div>
 
