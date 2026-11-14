@@ -46,11 +46,11 @@
 
 ## The problem
 
-Bees pollinate roughly **75% of the crops we eat**. Yet most farmers have no idea which species are actually visiting their flowers. Traditional identification requires catching the bee, pinning it, and sending it to a taxonomist — a process that takes weeks and kills the pollinator.
+<div align="center">
 
-**BeeBuzz takes a different approach: listen to the buzz.**
+<img src="https://github.com/marcos-Nieves-24/machine-learning-zoomcamp/raw/main/project/beebuzz/docs/images/diagram.png" width="800" alt="BeeBuzz — the problem and the approach"/>
 
-Every bee species produces a distinct acoustic signature when it flies or vibrates a flower. By recording that sound and feeding it through a machine learning model, we can identify the species in seconds — without touching the bee.
+</div>
 
 ---
 
