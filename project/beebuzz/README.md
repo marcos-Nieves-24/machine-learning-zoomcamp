@@ -19,26 +19,29 @@
 <div align="center">
 
 <a href="https://github.com/marcos-Nieves-24/machine-learning-zoomcamp/raw/main/project/beebuzz/docs/screenshots/dashboard-main.png">
-  <img src="https://github.com/marcos-Nieves-24/machine-learning-zoomcamp/raw/main/project/beebuzz/docs/screenshots/dashboard-main.png" width="700" alt="BeeBuzz Dashboard - Predict tab"/>
+  <img src="https://github.com/marcos-Nieves-24/machine-learning-zoomcamp/raw/main/project/beebuzz/docs/screenshots/dashboard-main.png" width="550" alt="BeeBuzz Dashboard - Predict tab"/>
 </a>
 
-*BeeBuzz dashboard — Predict tab. Upload a CSV or enter values manually. Click to enlarge.*
+*Predict tab — click to enlarge.*
 
-</div>
+<details>
+<summary>More screenshots (Results, About)</summary>
 
-<div align="center">
+<br/>
 
 <a href="https://github.com/marcos-Nieves-24/machine-learning-zoomcamp/raw/main/project/beebuzz/docs/screenshots/dashboard-results.png">
-  <img src="https://github.com/marcos-Nieves-24/machine-learning-zoomcamp/raw/main/project/beebuzz/docs/screenshots/dashboard-results.png" width="700" alt="BeeBuzz Dashboard - Results tab"/>
+  <img src="https://github.com/marcos-Nieves-24/machine-learning-zoomcamp/raw/main/project/beebuzz/docs/screenshots/dashboard-results.png" width="550" alt="BeeBuzz Dashboard - Results tab"/>
 </a>
 
-*My results tab — statistics of your predictions.*
+*My results tab.*
 
 <a href="https://github.com/marcos-Nieves-24/machine-learning-zoomcamp/raw/main/project/beebuzz/docs/screenshots/dashboard-about.png">
-  <img src="https://github.com/marcos-Nieves-24/machine-learning-zoomcamp/raw/main/project/beebuzz/docs/screenshots/dashboard-about.png" width="700" alt="BeeBuzz Dashboard - About tab"/>
+  <img src="https://github.com/marcos-Nieves-24/machine-learning-zoomcamp/raw/main/project/beebuzz/docs/screenshots/dashboard-about.png" width="550" alt="BeeBuzz Dashboard - About tab"/>
 </a>
 
-*About tab — model info and SHAP explainability.*
+*About tab — model info and SHAP.*
+
+</details>
 
 </div>
 
