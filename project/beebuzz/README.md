@@ -252,16 +252,6 @@ beebuzz/
 
 ---
 
-## Future work (capstone)
-
-This midterm is the first step of a larger project (**InsectID**):
-
-1. **Capstone 1** — Deep learning on raw audio (CNN on spectrograms) with InsectSound1000 (insect pests in greenhouses).
-2. **Capstone 2** — Full application: upload .wav → extract features → classify → species + ecological category (pest/pollinator) + IPM recommendation.
-3. **Field validation** — record bees in real orchards and validate the model.
-
----
-
 ## Data & license
 
 - **Dataset:** Mendeley Data — Dual-Signal Buzz Pollination (CC BY 4.0).
