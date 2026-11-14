@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="dashboard/logo.svg" width="120" alt="BeeBuzz Logo"/>
+<img src="https://raw.githubusercontent.com/marcos-Nieves-24/machine-learning-zoomcamp/main/project/beebuzz/dashboard/logo.svg" width="120" alt="BeeBuzz Logo"/>
 
 # BeeBuzz
 
@@ -9,6 +9,8 @@
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-f5a623?style=flat-square&labelColor=0f1117)](https://creativecommons.org/licenses/by/4.0/)
 [![Python 3.11+](https://img.shields.io/badge/python-3.11+-f5a623?style=flat-square&labelColor=0f1117)](https://www.python.org/downloads/)
 [![ML Zoomcamp 2026](https://img.shields.io/badge/ML%20Zoomcamp-2026-f5a623?style=flat-square&labelColor=0f1117)](https://github.com/DataTalksClub/machine-learning-zoomcamp)
+[![Tests](https://img.shields.io/badge/tests-3%20passing-f5a623?style=flat-square&labelColor=0f1117)](https://github.com/marcos-Nieves-24/machine-learning-zoomcamp/tree/main/project/beebuzz/tests)
+[![Docker](https://img.shields.io/badge/docker-ready-f5a623?style=flat-square&labelColor=0f1117)](https://github.com/marcos-Nieves-24/machine-learning-zoomcamp/tree/main/project/beebuzz/api/Dockerfile)
 
 </div>
 
@@ -16,9 +18,11 @@
 
 <div align="center">
 
-![Dashboard](docs/screenshots/dashboard-main.png)
+<a href="https://raw.githubusercontent.com/marcos-Nieves-24/machine-learning-zoomcamp/main/project/beebuzz/docs/screenshots/dashboard-main.png">
+  <img src="https://raw.githubusercontent.com/marcos-Nieves-24/machine-learning-zoomcamp/main/project/beebuzz/docs/screenshots/dashboard-main.png" width="700" alt="BeeBuzz Dashboard"/>
+</a>
 
-*BeeBuzz dashboard — light theme, bilingual (EN/ES)*
+*BeeBuzz dashboard — light theme, bilingual (EN/ES). Click to enlarge.*
 
 </div>
 
@@ -66,9 +70,16 @@ Trained and evaluated with 5-fold stratified cross-validation on 200 sound event
 |-------|----------|----------|
 | RF (default) | 99.0% | 0.99 |
 
-The buzz type is almost trivially distinguishable — floral sonication and flight produce very different acoustic patterns (duration, frequency, amplitude).
+<details>
+<summary>Why is buzz type 99% but species only 83.5%?</summary>
+
+Floral sonication and flight buzz are acoustically very different (duration, frequency, amplitude). Distinguishing 5 bee species requires detecting subtle differences in timbre (MFCC shape), which is harder. The 99% is realistic — not leakage — because each event is an independent recording.
+</details>
 
 ### Comparison with the source paper
+
+<details>
+<summary>Expand to see detailed comparison</summary>
 
 The original paper reports 95% accuracy (combined) using 182 features (including cinematic band-power extracted from raw audio files) and 1000 random train/test splits. Our 83.5% uses 67 features from the pre-extracted CSV with stricter 5-fold CV. The gap is explained by:
 
@@ -77,6 +88,8 @@ The original paper reports 95% accuracy (combined) using 182 features (including
 3. **Dataset size** — 518 samples (paper) vs. 200 events (our subset).
 
 We also added **SHAP explainability** and **Optuna tuning** (which, honestly, did not improve over defaults — a result worth documenting).
+
+</details>
 
 ---
 
@@ -96,10 +109,13 @@ Five bee species from the Mendeley Buzz Pollination dataset, recorded on blueber
 
 ## How it works
 
-```
-Audio (.wav)  →  Feature extraction (librosa)  →  67 features  →  Random Forest  →  Species + confidence
-                                                          │
-                                                          └→  Buzz type (floral/flight)
+```mermaid
+graph LR
+    A[Audio .wav] --> B[Feature extraction]
+    B --> C[67 features]
+    C --> D[Random Forest]
+    D --> E[Species + confidence]
+    D --> F[Buzz type floral/flight]
 ```
 
 The model receives pre-extracted acoustic features (fundamental frequency, MFCC) and returns:
@@ -110,6 +126,13 @@ The model receives pre-extracted acoustic features (fundamental frequency, MFCC)
 - **Buzz type** — floral (pollinating) or flight (just passing)
 
 SHAP analysis shows that **fundamental frequency (ffreq)** is the most discriminative feature for all species, followed by the first 3 MFCCs and duration.
+
+<details>
+<summary>View SHAP summary plot</summary>
+
+<img src="https://raw.githubusercontent.com/marcos-Nieves-24/machine-learning-zoomcamp/main/project/beebuzz/reports/shap_summary.png" width="600" alt="SHAP Summary"/>
+
+</details>
 
 ---
 
@@ -169,6 +192,9 @@ docker run -p 8000:8000 beebuzz
 
 ## Project structure
 
+<details>
+<summary>Expand to see full project tree</summary>
+
 ```
 beebuzz/
 ├── data/raw/buzz_data.csv          # Mendeley dataset (200 events, 5 species)
@@ -212,6 +238,8 @@ beebuzz/
 └── README.md
 ```
 
+</details>
+
 ---
 
 ## Limitations
@@ -253,7 +281,7 @@ This midterm is the first step of a larger project (**InsectID**):
 
 <div align="center">
 
-<img src="dashboard/logo-small.svg" width="32" alt="BeeBuzz"/>
+<img src="https://raw.githubusercontent.com/marcos-Nieves-24/machine-learning-zoomcamp/main/project/beebuzz/dashboard/logo-small.svg" width="32" alt="BeeBuzz"/>
 
 *BeeBuzz — ML Zoomcamp 2026 Midterm*
 
