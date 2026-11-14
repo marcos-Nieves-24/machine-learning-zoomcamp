@@ -31,12 +31,18 @@
   <img src="https://github.com/marcos-Nieves-24/machine-learning-zoomcamp/raw/main/project/beebuzz/docs/screenshots/dashboard-main.png" width="550" alt="BeeBuzz Dashboard - Predict tab"/>
 </a>
 
-*Predict tab (click to enlarge).*
+*Predict tab (CSV, audio or manual input) — click to enlarge.*
 
 <details>
-<summary>More screenshots (Results, About)</summary>
+<summary>More screenshots (audio upload, Results, About)</summary>
 
 <br/>
+
+<a href="https://github.com/marcos-Nieves-24/machine-learning-zoomcamp/raw/main/project/beebuzz/docs/screenshots/dashboard-audio.png">
+  <img src="https://github.com/marcos-Nieves-24/machine-learning-zoomcamp/raw/main/project/beebuzz/docs/screenshots/dashboard-audio.png" width="550" alt="BeeBuzz Dashboard - Audio upload"/>
+</a>
+
+*Audio upload with on-server feature extraction.*
 
 <a href="https://github.com/marcos-Nieves-24/machine-learning-zoomcamp/raw/main/project/beebuzz/docs/screenshots/dashboard-results.png">
   <img src="https://github.com/marcos-Nieves-24/machine-learning-zoomcamp/raw/main/project/beebuzz/docs/screenshots/dashboard-results.png" width="550" alt="BeeBuzz Dashboard - Results tab"/>

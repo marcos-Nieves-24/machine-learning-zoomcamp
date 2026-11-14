@@ -25,8 +25,16 @@ T = {
         "predict_header": "Make predictions",
         "input_mode": "Input mode",
         "upload_csv": "Upload CSV",
+        "upload_audio": "Upload audio (.wav)",
         "manual": "Manual input",
         "upload_label": "Upload a CSV with acoustic features",
+        "audio_label": "Upload one or more .wav recordings",
+        "audio_hint": "Features are extracted on the server with the same 67-feature pipeline.",
+        "audio_extracted": "Extracted features",
+        "audio_waveform": "Waveform (downsampled)",
+        "audio_scale_note": "Note: MFCC scales come from librosa and differ from the training pipeline — species scores on audio uploads are indicative, not calibrated.",
+        "audio_error": "Could not process this file",
+        "audio_no_librosa": "Audio support needs librosa + soundfile installed.",
         "rows_loaded": "rows loaded with",
         "columns": "columns",
         "predict_all": "Predict all",
@@ -101,8 +109,16 @@ MFCC) extracted from audio.
         "predict_header": "Hacer predicciones",
         "input_mode": "Modo de entrada",
         "upload_csv": "Subir CSV",
+        "upload_audio": "Subir audio (.wav)",
         "manual": "Ingreso manual",
         "upload_label": "Sube un CSV con features acústicas",
+        "audio_label": "Sube una o más grabaciones .wav",
+        "audio_hint": "Los features se extraen en el servidor con el mismo pipeline de 67 features.",
+        "audio_extracted": "Features extraídas",
+        "audio_waveform": "Forma de onda (reducida)",
+        "audio_scale_note": "Nota: las escalas MFCC vienen de librosa y difieren del pipeline de entrenamiento — los scores sobre audio son indicativos, no calibrados.",
+        "audio_error": "No se pudo procesar este archivo",
+        "audio_no_librosa": "El soporte de audio necesita librosa + soundfile instalados.",
         "rows_loaded": "filas cargadas con",
         "columns": "columnas",
         "predict_all": "Predecir todas",
@@ -335,9 +351,75 @@ tab1, tab2, tab3 = st.tabs([t["tab_predict"], t["tab_results"], t["tab_about"]])
 # ===================== TAB 1 =====================
 with tab1:
     st.header(t["predict_header"])
-    mode = st.radio(t["input_mode"], [t["upload_csv"], t["manual"]], horizontal=True)
+    mode = st.radio(t["input_mode"], [t["upload_csv"], t["upload_audio"], t["manual"]], horizontal=True)
 
-    if mode == t["upload_csv"]:
+    if mode == t["upload_audio"]:
+        st.caption(t["audio_hint"])
+        st.info(t["audio_scale_note"])
+        try:
+            sys.path.insert(0, str(ROOT / "scripts"))
+            from extract_features import extract_one
+            audio_ok = True
+        except Exception:
+            audio_ok = False
+            st.error(t["audio_no_librosa"])
+
+        if audio_ok:
+            wavs = st.file_uploader(t["audio_label"], type=["wav"], accept_multiple_files=True)
+            if wavs:
+                import io
+                import tempfile
+                for w in wavs:
+                    raw = bytes(w.getbuffer())
+                    with tempfile.NamedTemporaryFile(suffix=".wav", delete=False) as tmp:
+                        tmp.write(raw)
+                        tmp_path = Path(tmp.name)
+                    try:
+                        row, warnings = extract_one(tmp_path)
+                    except ValueError as e:
+                        st.error(f"{t['audio_error']}: {w.name} — {e}")
+                        continue
+                    finally:
+                        tmp_path.unlink(missing_ok=True)
+                    if warnings:
+                        st.warning(f"{w.name}: " + "; ".join(warnings))
+
+                    st.subheader(w.name)
+                    c1, c2 = st.columns(2)
+                    with c1:
+                        st.metric(t["fundamental_freq"], f"{row['ffreq']:.1f} Hz")
+                        st.metric(t["duration"], f"{row['duration.s']:.3f} s")
+                    with c2:
+                        st.caption(t["audio_waveform"])
+                        try:
+                            import soundfile as _sf
+                            y, _sr = _sf.read(io.BytesIO(raw), always_2d=True)
+                            y = y[:, 0]
+                            step = max(1, len(y) // 500)
+                            st.line_chart(pd.DataFrame({"amp": y[::step]}))
+                        except Exception:
+                            st.caption("—")
+                    feats = {f: row[f] for f in FEATURES}
+                    with st.spinner("Predicting..."):
+                        sp = predict_one(feats)
+                        bt = predict_type(feats)
+                    sp_name = sp["species"]
+                    parts = sp_name.split()
+                    sp_fmt = " ".join(f"<i>{p}</i>" if p.lower() != "sp." else p for p in parts)
+                    st.markdown(f"""
+                    <div class="result-box">
+                      <div class="species">{sp_fmt}</div>
+                      <div class="conf">{t['confidence']}: {sp['confidence']:.2%} · {bt['buzz_type']}: {bt['confidence']:.2%}</div>
+                    </div>
+                    """, unsafe_allow_html=True)
+                    st.session_state.predictions.append(pd.DataFrame([{
+                        "species": sp["species"],
+                        "species_confidence": sp["confidence"],
+                        "buzz_type": bt["buzz_type"],
+                        "buzz_confidence": bt["confidence"],
+                    }]))
+
+    elif mode == t["upload_csv"]:
         # Example CSV download
         if example_df is not None:
             example_csv = example_df.to_csv(index=False, sep=";", decimal=",")
