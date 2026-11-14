@@ -72,9 +72,9 @@ MFCC) extracted from audio.
 - Xylocopa pretinha (*Xylocopa* sp.)
 
 **Performance (honest 80/20 holdout, n=40):**
-- Species: 80.0% accuracy (RF, 67 features)
+- Species: 77.5% accuracy (RF tuned, 67 features, holdout n=40)
 - Buzz type (floral/flight): 100% — with filename-prefix caveat
-- Calibration: Brier 0.084, ECE 0.31 (overconfident)
+- Calibration: Brier 0.090, ECE 0.31 (overconfident)
 
 **Data source:** Mendeley Data — Dual-Signal Buzz Pollination (CC BY 4.0).
 """,
@@ -148,9 +148,9 @@ MFCC) extraídas del audio.
 - Xylocopa pretinha (*Xylocopa* sp.)
 
 **Rendimiento (holdout 80/20 honesto, n=40):**
-- Especies: 80.0% accuracy (RF, 67 features)
+- Especies: 77.5% accuracy (RF tuned, 67 features, holdout n=40)
 - Tipo de buzz (floral/flight): 100% — con caveat de prefijo de archivo
-- Calibración: Brier 0.084, ECE 0.31 (overconfident)
+- Calibración: Brier 0.090, ECE 0.31 (overconfident)
 
 **Fuente de datos:** Mendeley Data — Dual-Signal Buzz Pollination (CC BY 4.0).
 """,

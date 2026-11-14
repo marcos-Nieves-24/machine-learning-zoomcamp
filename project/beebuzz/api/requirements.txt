@@ -1,3 +1,5 @@
+# Compatible ranges for Docker (python:3.11-slim).
+# For exact local reproduction use ../requirements.txt (pinned).
 fastapi>=0.100
 uvicorn>=0.23
 pydantic>=2.0

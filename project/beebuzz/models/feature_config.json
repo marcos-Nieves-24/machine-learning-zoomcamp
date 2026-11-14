@@ -82,7 +82,7 @@
     "Oxaea verdinha": 3,
     "Xylocopa pretinha": 4
   },
-  "best_model": "rf_default",
+  "best_model": "rf_tuned",
   "metrics": {
     "dummy": {
       "accuracy_cv_train": 0.1875,
@@ -98,31 +98,31 @@
     },
     "rf_default": {
       "accuracy_cv_train": 0.8,
-      "macro_f1_cv_train": 0.8033467850417002,
-      "accuracy_holdout": 0.8,
-      "macro_f1_holdout": 0.8002255639097745
+      "macro_f1_cv_train": 0.8033467850417002
     },
     "xgb_default": {
       "accuracy_cv_train": 0.775,
       "macro_f1_cv_train": 0.778150030255407
     },
     "rf_tuned": {
-      "accuracy_cv_train": 0.79375,
-      "macro_f1_cv_train": 0.796067525370804,
+      "accuracy_cv_train": 0.8125,
+      "macro_f1_cv_train": 0.8136756369399605,
       "best_params": {
-        "n_estimators": 302,
-        "max_depth": 13,
-        "min_samples_split": 3,
-        "min_samples_leaf": 3,
-        "max_features": "log2"
-      }
+        "n_estimators": 288,
+        "max_depth": 17,
+        "min_samples_split": 7,
+        "min_samples_leaf": 2,
+        "max_features": "sqrt"
+      },
+      "accuracy_holdout": 0.775,
+      "macro_f1_holdout": 0.7778011204481792
     }
   },
   "classification_report_holdout": {
     "Banguela sp.": {
-      "precision": 0.6363636363636364,
-      "recall": 0.875,
-      "f1-score": 0.7368421052631579,
+      "precision": 0.6,
+      "recall": 0.75,
+      "f1-score": 0.6666666666666666,
       "support": 8.0
     },
     "Bombus morio": {
@@ -132,40 +132,40 @@
       "support": 8.0
     },
     "Centris cinza": {
-      "precision": 0.8333333333333334,
+      "precision": 0.7142857142857143,
       "recall": 0.625,
-      "f1-score": 0.7142857142857143,
+      "f1-score": 0.6666666666666666,
       "support": 8.0
     },
     "Oxaea verdinha": {
-      "precision": 0.875,
+      "precision": 0.7777777777777778,
       "recall": 0.875,
-      "f1-score": 0.875,
+      "f1-score": 0.8235294117647058,
       "support": 8.0
     },
     "Xylocopa pretinha": {
-      "precision": 0.8571428571428571,
+      "precision": 1.0,
       "recall": 0.75,
-      "f1-score": 0.8,
+      "f1-score": 0.8571428571428571,
       "support": 8.0
     },
-    "accuracy": 0.8,
+    "accuracy": 0.775,
     "macro avg": {
-      "precision": 0.8153679653679653,
-      "recall": 0.8,
-      "f1-score": 0.8002255639097745,
+      "precision": 0.7934126984126985,
+      "recall": 0.775,
+      "f1-score": 0.7778011204481792,
       "support": 40.0
     },
     "weighted avg": {
-      "precision": 0.8153679653679653,
-      "recall": 0.8,
-      "f1-score": 0.8002255639097745,
+      "precision": 0.7934126984126985,
+      "recall": 0.775,
+      "f1-score": 0.7778011204481792,
       "support": 40.0
     }
   },
   "calibration_holdout": {
-    "brier_ovr_mean": 0.08352775000000001,
-    "ece_maxprob": 0.306625
+    "brier_ovr_mean": 0.08974705983492035,
+    "ece_maxprob": 0.30586703877719507
   },
   "protocol": "stratified 80/20 holdout (seed 42) reserved before tuning; 5-fold CV + Optuna(20) on train only; final eval once on holdout"
 }

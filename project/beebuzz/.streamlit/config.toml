@@ -1,0 +1,6 @@
+# Streamlit Cloud config — https://share.streamlit.io
+# Main file: dashboard/app.py
+# Python version: 3.11
+[server]
+headless = true
+enableCORS = false

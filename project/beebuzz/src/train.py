@@ -115,7 +115,8 @@ def main():
 
     # --- RF tuning on TRAIN only ---
     print("\nTuning RandomForest (20 trials, train only)...", flush=True)
-    study_rf = optuna.create_study(direction="maximize")
+    study_rf = optuna.create_study(direction="maximize",
+                                      sampler=optuna.samplers.TPESampler(seed=42))
     study_rf.optimize(lambda t: objective_rf(t, X_tr, y_tr), n_trials=20, show_progress_bar=False)
     best_rf_params = study_rf.best_params
     print(f"Best RF (train CV) macroF1: {study_rf.best_value:.4f}", flush=True)
