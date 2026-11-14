@@ -1,0 +1,119 @@
+{
+  "features": [
+    "ffreq",
+    "duration.s",
+    "mean.mfc 1",
+    "mean.mfc 2",
+    "mean.mfc 3",
+    "mean.mfc 4",
+    "mean.mfc 5",
+    "mean.mfc 6",
+    "mean.mfc 7",
+    "mean.mfc 8",
+    "mean.mfc 9",
+    "mean.mfc 10",
+    "mean.mfc 11",
+    "mean.mfc 12",
+    "mean.mfc 13",
+    "sd.mfc 1",
+    "sd.mfc 2",
+    "sd.mfc 3",
+    "sd.mfc 4",
+    "sd.mfc 5",
+    "sd.mfc 6",
+    "sd.mfc 7",
+    "sd.mfc 8",
+    "sd.mfc 9",
+    "sd.mfc 10",
+    "sd.mfc 11",
+    "sd.mfc 12",
+    "sd.mfc 13",
+    "skew.mfc 1",
+    "skew.mfc 2",
+    "skew.mfc 3",
+    "skew.mfc 4",
+    "skew.mfc 5",
+    "skew.mfc 6",
+    "skew.mfc 7",
+    "skew.mfc 8",
+    "skew.mfc 9",
+    "skew.mfc 10",
+    "skew.mfc 11",
+    "skew.mfc 12",
+    "skew.mfc 13",
+    "kurt.mfc 1",
+    "kurt.mfc 2",
+    "kurt.mfc 3",
+    "kurt.mfc 4",
+    "kurt.mfc 5",
+    "kurt.mfc 6",
+    "kurt.mfc 7",
+    "kurt.mfc 8",
+    "kurt.mfc 9",
+    "kurt.mfc 10",
+    "kurt.mfc 11",
+    "kurt.mfc 12",
+    "kurt.mfc 13",
+    "med.mfc 1",
+    "med.mfc 2",
+    "med.mfc 3",
+    "med.mfc 4",
+    "med.mfc 5",
+    "med.mfc 6",
+    "med.mfc 7",
+    "med.mfc 8",
+    "med.mfc 9",
+    "med.mfc 10",
+    "med.mfc 11",
+    "med.mfc 12",
+    "med.mfc 13"
+  ],
+  "classes": [
+    "Banguela sp.",
+    "Bombus morio",
+    "Centris cinza",
+    "Oxaea verdinha",
+    "Xylocopa pretinha"
+  ],
+  "label_map": {
+    "Banguela sp.": 0,
+    "Bombus morio": 1,
+    "Centris cinza": 2,
+    "Oxaea verdinha": 3,
+    "Xylocopa pretinha": 4
+  },
+  "best_model": "rf_default",
+  "metrics_cv": {
+    "dummy": {
+      "accuracy": 0.2,
+      "macro_f1": 0.06666666666666667
+    },
+    "lda": {
+      "accuracy": 0.665,
+      "macro_f1": 0.6678659647382746
+    },
+    "logreg": {
+      "accuracy": 0.745,
+      "macro_f1": 0.7470677103492577
+    },
+    "rf_default": {
+      "accuracy": 0.835,
+      "macro_f1": 0.834486215538847
+    },
+    "xgb_default": {
+      "accuracy": 0.815,
+      "macro_f1": 0.815975975529162
+    },
+    "rf_tuned": {
+      "accuracy": 0.83,
+      "macro_f1": 0.8299980901483188,
+      "best_params": {
+        "n_estimators": 355,
+        "max_depth": 15,
+        "min_samples_split": 2,
+        "min_samples_leaf": 1,
+        "max_features": "log2"
+      }
+    }
+  }
+}

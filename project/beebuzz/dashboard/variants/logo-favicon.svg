@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256"><title>BeeBuzz logo</title><g transform="translate(5.12 5.12) scale(3.84)">
+  
+  <rect width="64" height="64" rx="12" fill="#0f1117"/>
+  <polygon points="16,10 48,10 56,32 48,54 16,54 8,32" fill="#f5a623"/>
+  <polygon points="21,17 43,17 49,32 43,47 21,47 15,32" fill="#0f1117"/>
+  <circle cx="32" cy="30" r="3" fill="#f5a623"/>
+</g></svg>

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 128" width="400" height="128">
+  <title>BeeBuzz logo horizontal</title>
+  <!-- Symbol (scaled to 96x96, left-aligned) -->
+  <g transform="translate(16,16) scale(0.375)">
+    <rect width="256" height="256" rx="48" fill="#0f1117"/>
+    <polygon points="64,40 192,40 224,128 192,216 64,216 32,128" fill="#f5a623"/>
+    <polygon points="84,68 172,68 196,128 172,188 84,188 60,128" fill="#0f1117"/>
+    <path d="M96,104 Q128,84 160,104" fill="none" stroke="#f5a623" stroke-width="6" stroke-linecap="round"/>
+    <path d="M84,124 Q128,100 172,124" fill="none" stroke="#f5a623" stroke-width="6" stroke-linecap="round"/>
+    <path d="M72,144 Q128,116 184,144" fill="none" stroke="#f5a623" stroke-width="6" stroke-linecap="round"/>
+    <circle cx="128" cy="120" r="8" fill="#f5a623"/>
+  </g>
+  <!-- Wordmark -->
+  <text x="120" y="80" font-family="Inter, 'Helvetica Neue', Arial, sans-serif" font-size="48" font-weight="700" fill="#f5a623" letter-spacing="-1">BeeBuzz</text>
+  <text x="122" y="104" font-family="Inter, 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="400" fill="#9ca3af" letter-spacing="0.5">Bee species classifier</text>
+</svg>

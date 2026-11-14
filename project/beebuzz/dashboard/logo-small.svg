@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <title>BeeBuzz icon</title>
+  <rect width="64" height="64" rx="12" fill="#0f1117"/>
+  <polygon points="16,10 48,10 56,32 48,54 16,54 8,32" fill="#f5a623"/>
+  <polygon points="21,17 43,17 49,32 43,47 21,47 15,32" fill="#0f1117"/>
+  <circle cx="32" cy="30" r="3" fill="#f5a623"/>
+</svg>

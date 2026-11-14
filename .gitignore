@@ -27,3 +27,7 @@ project/eva-rendimientos/api/*.joblib
 project/eva-rendimientos/api/history.csv
 # Loose images in homework-3
 homework-3/*.png
+
+# Screenshots and browser artifacts
+*.png
+.playwright-mcp/
