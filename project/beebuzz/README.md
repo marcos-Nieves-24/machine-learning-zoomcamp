@@ -19,10 +19,26 @@
 <div align="center">
 
 <a href="https://github.com/marcos-Nieves-24/machine-learning-zoomcamp/raw/main/project/beebuzz/docs/screenshots/dashboard-main.png">
-  <img src="https://github.com/marcos-Nieves-24/machine-learning-zoomcamp/raw/main/project/beebuzz/docs/screenshots/dashboard-main.png" width="700" alt="BeeBuzz Dashboard"/>
+  <img src="https://github.com/marcos-Nieves-24/machine-learning-zoomcamp/raw/main/project/beebuzz/docs/screenshots/dashboard-main.png" width="700" alt="BeeBuzz Dashboard - Predict tab"/>
 </a>
 
-*BeeBuzz dashboard — light theme, bilingual (EN/ES). Click to enlarge.*
+*BeeBuzz dashboard — Predict tab. Upload a CSV or enter values manually. Click to enlarge.*
+
+</div>
+
+<div align="center">
+
+<a href="https://github.com/marcos-Nieves-24/machine-learning-zoomcamp/raw/main/project/beebuzz/docs/screenshots/dashboard-results.png">
+  <img src="https://github.com/marcos-Nieves-24/machine-learning-zoomcamp/raw/main/project/beebuzz/docs/screenshots/dashboard-results.png" width="700" alt="BeeBuzz Dashboard - Results tab"/>
+</a>
+
+*My results tab — statistics of your predictions.*
+
+<a href="https://github.com/marcos-Nieves-24/machine-learning-zoomcamp/raw/main/project/beebuzz/docs/screenshots/dashboard-about.png">
+  <img src="https://github.com/marcos-Nieves-24/machine-learning-zoomcamp/raw/main/project/beebuzz/docs/screenshots/dashboard-about.png" width="700" alt="BeeBuzz Dashboard - About tab"/>
+</a>
+
+*About tab — model info and SHAP explainability.*
 
 </div>
 
@@ -232,8 +248,8 @@ beebuzz/
 │   └── shap_bar.png
 ├── docs/screenshots/
 │   ├── dashboard-main.png
-│   ├── dashboard-light.png
-│   └── dashboard-dark.png
+│   ├── dashboard-results.png
+│   └── dashboard-about.png
 ├── requirements.txt
 └── README.md
 ```

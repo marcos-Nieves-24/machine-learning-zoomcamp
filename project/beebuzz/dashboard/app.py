@@ -431,10 +431,10 @@ with tab1:
             with st.spinner("Predicting..."):
                 res = predict_one(vals)
             # Format species name: italicize genus/species, but not "sp."
-    sp_name = res['species']
-    sp_parts = sp_name.split()
-    sp_formatted = " ".join(f"<i>{p}</i>" if p.lower() != "sp." else p for p in sp_parts)
-    st.markdown(f"""
+            sp_name = res['species']
+            sp_parts = sp_name.split()
+            sp_formatted = " ".join(f"<i>{p}</i>" if p.lower() != "sp." else p for p in sp_parts)
+            st.markdown(f"""
             <div class="result-box">
               <div class="species">{sp_formatted}</div>
               <div class="conf">{t['confidence']}: {res['confidence']:.2%}</div>
