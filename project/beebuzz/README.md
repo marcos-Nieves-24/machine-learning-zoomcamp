@@ -1,18 +1,38 @@
+<div align="center">
+
+<img src="dashboard/logo.svg" width="120" alt="BeeBuzz Logo"/>
+
 # BeeBuzz
 
-> Classifying bees by the sound of their buzz.
+### *Classifying bees by the sound of their buzz.*
 
-[![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
-[![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
-[![ML Zoomcamp 2026](https://img.shields.io/badge/ML%20Zoomcamp-2026-orange.svg)](https://github.com/DataTalksClub/machine-learning-zoomcamp)
+[![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-f5a623?style=flat-square&labelColor=0f1117)](https://creativecommons.org/licenses/by/4.0/)
+[![Python 3.11+](https://img.shields.io/badge/python-3.11+-f5a623?style=flat-square&labelColor=0f1117)](https://www.python.org/downloads/)
+[![ML Zoomcamp 2026](https://img.shields.io/badge/ML%20Zoomcamp-2026-f5a623?style=flat-square&labelColor=0f1117)](https://github.com/DataTalksClub/machine-learning-zoomcamp)
+
+</div>
+
+---
+
+<div align="center">
+
+![Dashboard](docs/screenshots/dashboard-main.png)
+
+*BeeBuzz dashboard — light theme, bilingual (EN/ES)*
+
+</div>
+
+---
 
 ## The problem
 
-Bees pollinate roughly 75% of the crops we eat. Yet most farmers have no idea which species are actually visiting their flowers. Traditional identification requires catching the bee, pinning it, and sending it to a taxonomist — a process that takes weeks and kills the pollinator.
+Bees pollinate roughly **75% of the crops we eat**. Yet most farmers have no idea which species are actually visiting their flowers. Traditional identification requires catching the bee, pinning it, and sending it to a taxonomist — a process that takes weeks and kills the pollinator.
 
-BeeBuzz takes a different approach: **listen to the buzz.**
+**BeeBuzz takes a different approach: listen to the buzz.**
 
 Every bee species produces a distinct acoustic signature when it flies or vibrates a flower. By recording that sound and feeding it through a machine learning model, we can identify the species in seconds — without touching the bee.
+
+---
 
 ## What it does
 
@@ -22,6 +42,8 @@ BeeBuzz classifies bee species from their buzzing sounds using acoustic features
 - **Flight buzz** — the bee flying between flowers
 
 A second model classifies the buzz type, which matters for pollination monitoring: a floral buzz means the bee is actively pollinating, while a flight buzz means it's just passing through.
+
+---
 
 ## Results
 
@@ -56,15 +78,21 @@ The original paper reports 95% accuracy (combined) using 182 features (including
 
 We also added **SHAP explainability** and **Optuna tuning** (which, honestly, did not improve over defaults — a result worth documenting).
 
+---
+
 ## Species
 
 Five bee species from the Mendeley Buzz Pollination dataset, recorded on blueberry flowers in Brazil:
 
-- Banguela sp. (*Cadeguala occidentalis*)
-- *Bombus morio*
-- Centris cinza (*Centris cineraria*)
-- Oxaea verdinha (*Oxaea flavescens*)
-- Xylocopa pretinha (*Xylocopa* sp.)
+| Morphotype | Scientific name | Family |
+|---|---|---|
+| Banguela sp. | *Cadeguala occidentalis* | Colletidae |
+| *Bombus morio* | *Bombus morio* | Apidae |
+| Centris cinza | *Centris cineraria* | Apidae |
+| Oxaea verdinha | *Oxaea flavescens* | Andrenidae |
+| Xylocopa pretinha | *Xylocopa* sp. | Apidae |
+
+---
 
 ## How it works
 
@@ -74,13 +102,16 @@ Audio (.wav)  →  Feature extraction (librosa)  →  67 features  →  Random F
                                                           └→  Buzz type (floral/flight)
 ```
 
-The model receives pre-extracted acoustic features (fundamental frequency, MFCC statistics) and returns:
+The model receives pre-extracted acoustic features (fundamental frequency, MFCC) and returns:
+
 - **Species** — which bee is buzzing
 - **Confidence** — how sure the model is (0–1)
 - **Probabilities** — score for each species
 - **Buzz type** — floral (pollinating) or flight (just passing)
 
 SHAP analysis shows that **fundamental frequency (ffreq)** is the most discriminative feature for all species, followed by the first 3 MFCCs and duration.
+
+---
 
 ## Getting started
 
@@ -125,7 +156,7 @@ Endpoints:
 streamlit run dashboard/app.py
 ```
 
-Opens at `http://localhost:8501`. Upload a CSV or enter features manually.
+Opens at `http://localhost:8501`. Upload a CSV or enter features manually. Bilingual (EN/ES).
 
 ### Docker
 
@@ -133,6 +164,8 @@ Opens at `http://localhost:8501`. Upload a CSV or enter features manually.
 docker build -f api/Dockerfile -t beebuzz .
 docker run -p 8000:8000 beebuzz
 ```
+
+---
 
 ## Project structure
 
@@ -171,9 +204,15 @@ beebuzz/
 ├── reports/
 │   ├── shap_summary.png
 │   └── shap_bar.png
+├── docs/screenshots/
+│   ├── dashboard-main.png
+│   ├── dashboard-light.png
+│   └── dashboard-dark.png
 ├── requirements.txt
 └── README.md
 ```
+
+---
 
 ## Limitations
 
@@ -183,6 +222,8 @@ beebuzz/
 - **No audio endpoint** — the API receives pre-extracted features, not raw audio. Audio upload is planned for the capstone.
 - **Morphotype labels** — some species are identified by morphotype (common names in Portuguese), not formal taxonomy.
 
+---
+
 ## Future work (capstone)
 
 This midterm is the first step of a larger project (**InsectID**):
@@ -191,6 +232,8 @@ This midterm is the first step of a larger project (**InsectID**):
 2. **Capstone 2** — Full application: upload .wav → extract features → classify → species + ecological category (pest/pollinator) + IPM recommendation.
 3. **Field validation** — record bees in real orchards and validate the model.
 
+---
+
 ## Data & license
 
 - **Dataset:** Mendeley Data — Dual-Signal Buzz Pollination (CC BY 4.0).
@@ -198,8 +241,20 @@ This midterm is the first step of a larger project (**InsectID**):
 - **Code:** GitHub — Caarvelos/Bee-acoustics-classification.
 - **License:** CC BY 4.0. Cite the Mendeley Data DOI and the paper when reusing.
 
+---
+
 ## Acknowledgments
 
 - Mendeley Data and the authors of the original dataset.
 - ML Zoomcamp 2026 (DataTalks.Club) for the course structure.
 - The bees, for their cooperation.
+
+---
+
+<div align="center">
+
+<img src="dashboard/logo-small.svg" width="32" alt="BeeBuzz"/>
+
+*BeeBuzz — ML Zoomcamp 2026 Midterm*
+
+</div>

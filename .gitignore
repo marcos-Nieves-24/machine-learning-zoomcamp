@@ -31,3 +31,4 @@ homework-3/*.png
 # Screenshots and browser artifacts
 *.png
 .playwright-mcp/
+!project/beebuzz/docs/screenshots/*.png
