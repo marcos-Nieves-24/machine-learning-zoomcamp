@@ -217,6 +217,18 @@ Endpoints:
 - `POST /predict` — species classification
 - `POST /predict/type` — buzz type classification
 
+### From audio to CSV (feature extraction)
+
+```bash
+pip install librosa soundfile
+python scripts/extract_features.py recording.wav --out features.csv
+# then upload features.csv in the dashboard (Predict tab)
+```
+
+Takes one or more `.wav` files (or a directory), resamples to 44100 Hz mono, extracts the same 67 features (13 MFCC + stats, fundamental frequency, duration) and writes them in dashboard format (`;` separator). Rejects non-wav, silence, clips under 0.05 s and sample rates below 8 kHz.
+
+Known limitation: the training CSV came from the paper's R pipeline, whose MFCC magnitudes sit on a different scale than librosa's (verified against training ranges — only `ffreq`/`duration.s` transfer directly). So treat this script as the pipeline bridge for now: correct schema, but MFCCs need recalibration before field predictions. That recalibration is capstone work.
+
 ### Run the dashboard
 
 ```bash
