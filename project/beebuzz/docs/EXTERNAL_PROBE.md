@@ -24,7 +24,10 @@ so I/O and resampling are correct. The gap is in feature extraction:
 - MFCC magnitudes differ by an order of magnitude (different filterbank scaling).
 
 Conclusion: the `.wav → CSV → dashboard` plumbing works end to end, but
-librosa features are **out of distribution** for this model. Fix (capstone):
-re-extract features from the training `.wav`s with this same script and
-retrain, or fit a per-feature standardization. Do not use audio-upload
-predictions as field results until then.
+librosa features were **out of distribution** for the R-trained model. Fix applied
+(Nov 2026, option B): re-extracted all 200 training `.wav`s with
+`scripts/extract_features.py` (`data/processed/buzz_librosa.csv`) and retrained
+with the same honest protocol. Result: holdout 80.0% / macro-F1 0.79, and the
+same 5 probe clips now score **5/5** with confidences 0.53–0.84. The audio-upload
+path in the dashboard is therefore fed by the same extractor the model was
+trained on. Remaining caveat: confidence is still uncalibrated (ECE 0.35).

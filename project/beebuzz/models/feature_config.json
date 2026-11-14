@@ -89,52 +89,52 @@
       "macro_f1_cv_train": 0.13125
     },
     "lda": {
-      "accuracy_cv_train": 0.53125,
-      "macro_f1_cv_train": 0.5275254054206748
+      "accuracy_cv_train": 0.64375,
+      "macro_f1_cv_train": 0.6440714214329284
     },
     "logreg": {
-      "accuracy_cv_train": 0.65625,
-      "macro_f1_cv_train": 0.6605616878838477
+      "accuracy_cv_train": 0.725,
+      "macro_f1_cv_train": 0.7277624015328934
     },
     "rf_default": {
-      "accuracy_cv_train": 0.8,
-      "macro_f1_cv_train": 0.8033467850417002
+      "accuracy_cv_train": 0.7375,
+      "macro_f1_cv_train": 0.7373247904398602
     },
     "xgb_default": {
-      "accuracy_cv_train": 0.775,
-      "macro_f1_cv_train": 0.778150030255407
+      "accuracy_cv_train": 0.69375,
+      "macro_f1_cv_train": 0.6938684984084638
     },
     "rf_tuned": {
-      "accuracy_cv_train": 0.8125,
-      "macro_f1_cv_train": 0.8136756369399605,
+      "accuracy_cv_train": 0.7625,
+      "macro_f1_cv_train": 0.7628784477171575,
       "best_params": {
-        "n_estimators": 288,
-        "max_depth": 17,
-        "min_samples_split": 7,
-        "min_samples_leaf": 2,
-        "max_features": "sqrt"
+        "n_estimators": 279,
+        "max_depth": 19,
+        "min_samples_split": 2,
+        "min_samples_leaf": 1,
+        "max_features": "log2"
       },
-      "accuracy_holdout": 0.775,
-      "macro_f1_holdout": 0.7778011204481792
+      "accuracy_holdout": 0.8,
+      "macro_f1_holdout": 0.7922268907563025
     }
   },
   "classification_report_holdout": {
     "Banguela sp.": {
-      "precision": 0.6,
-      "recall": 0.75,
-      "f1-score": 0.6666666666666666,
-      "support": 8.0
-    },
-    "Bombus morio": {
       "precision": 0.875,
       "recall": 0.875,
       "f1-score": 0.875,
       "support": 8.0
     },
+    "Bombus morio": {
+      "precision": 0.75,
+      "recall": 0.75,
+      "f1-score": 0.75,
+      "support": 8.0
+    },
     "Centris cinza": {
-      "precision": 0.7142857142857143,
-      "recall": 0.625,
-      "f1-score": 0.6666666666666666,
+      "precision": 0.6666666666666666,
+      "recall": 0.5,
+      "f1-score": 0.5714285714285714,
       "support": 8.0
     },
     "Oxaea verdinha": {
@@ -144,28 +144,28 @@
       "support": 8.0
     },
     "Xylocopa pretinha": {
-      "precision": 1.0,
-      "recall": 0.75,
-      "f1-score": 0.8571428571428571,
+      "precision": 0.8888888888888888,
+      "recall": 1.0,
+      "f1-score": 0.9411764705882353,
       "support": 8.0
     },
-    "accuracy": 0.775,
+    "accuracy": 0.8,
     "macro avg": {
-      "precision": 0.7934126984126985,
-      "recall": 0.775,
-      "f1-score": 0.7778011204481792,
+      "precision": 0.7916666666666666,
+      "recall": 0.8,
+      "f1-score": 0.7922268907563025,
       "support": 40.0
     },
     "weighted avg": {
-      "precision": 0.7934126984126985,
-      "recall": 0.775,
-      "f1-score": 0.7778011204481792,
+      "precision": 0.7916666666666666,
+      "recall": 0.8,
+      "f1-score": 0.7922268907563025,
       "support": 40.0
     }
   },
   "calibration_holdout": {
-    "brier_ovr_mean": 0.08974705983492035,
-    "ece_maxprob": 0.30586703877719507
+    "brier_ovr_mean": 0.09602137690934083,
+    "ece_maxprob": 0.35322580645161283
   },
   "protocol": "stratified 80/20 holdout (seed 42) reserved before tuning; 5-fold CV + Optuna(20) on train only; final eval once on holdout"
 }

@@ -4,6 +4,7 @@ Usage:
     python src/shap_analysis.py
 """
 import json
+import os
 from pathlib import Path
 
 import joblib
@@ -17,7 +18,7 @@ import shap
 from features import FEATURES, TARGET_SPECIES, load, split_features_target
 
 ROOT = Path(__file__).resolve().parents[1]
-DATA = ROOT / "data" / "raw" / "buzz_data.csv"
+DATA = Path(os.environ.get("BEEBUZZ_DATA", ROOT / "data" / "raw" / "buzz_data.csv"))
 MODELS = ROOT / "models"
 REPORTS = ROOT / "reports"
 REPORTS.mkdir(exist_ok=True)

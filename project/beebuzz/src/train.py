@@ -10,6 +10,7 @@ Usage:
     python src/train.py
 """
 import json
+import os
 from pathlib import Path
 
 import joblib
@@ -35,7 +36,7 @@ from xgboost import XGBClassifier
 from features import FEATURES, TARGET_SPECIES, TARGET_TYPE, load, split_features_target
 
 ROOT = Path(__file__).resolve().parents[1]
-DATA = ROOT / "data" / "raw" / "buzz_data.csv"
+DATA = Path(os.environ.get("BEEBUZZ_DATA", ROOT / "data" / "raw" / "buzz_data.csv"))
 MODELS = ROOT / "models"
 REPORTS = ROOT / "reports"
 MODELS.mkdir(exist_ok=True)

@@ -1,3 +1,4 @@
+import os
 """Full EDA for BeeBuzz: distributions, floral vs flight, correlations, PCA, metadata, leakage checks."""
 from pathlib import Path
 
@@ -13,7 +14,7 @@ from sklearn.preprocessing import StandardScaler
 from features import FEATURES, TARGET_SPECIES, TARGET_TYPE, load
 
 ROOT = Path(__file__).resolve().parents[1]
-DATA = ROOT / "data" / "raw" / "buzz_data.csv"
+DATA = Path(os.environ.get("BEEBUZZ_DATA", ROOT / "data" / "raw" / "buzz_data.csv"))
 REPORTS = ROOT / "reports"
 REPORTS.mkdir(exist_ok=True)
 

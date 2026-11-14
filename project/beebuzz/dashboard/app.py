@@ -32,7 +32,7 @@ T = {
         "audio_hint": "Features are extracted on the server with the same 67-feature pipeline.",
         "audio_extracted": "Extracted features",
         "audio_waveform": "Waveform (downsampled)",
-        "audio_scale_note": "Note: MFCC scales come from librosa and differ from the training pipeline — species scores on audio uploads are indicative, not calibrated.",
+        "audio_scale_note": "Features come from the same librosa extractor the model was trained on. Confidence is not calibrated — treat scores as indicative.",
         "audio_error": "Could not process this file",
         "audio_no_librosa": "Audio support needs librosa + soundfile installed.",
         "rows_loaded": "rows loaded with",
@@ -80,9 +80,9 @@ MFCC) extracted from audio.
 - Xylocopa pretinha (*Xylocopa* sp.)
 
 **Performance (honest 80/20 holdout, n=40):**
-- Species: 77.5% accuracy (RF tuned, 67 features, holdout n=40)
+- Species: 80.0% accuracy (RF tuned, 67 librosa features, holdout n=40)
 - Buzz type (floral/flight): 100% — with filename-prefix caveat
-- Calibration: Brier 0.090, ECE 0.31 (overconfident)
+- Calibration: Brier 0.096, ECE 0.35 (overconfident)
 
 **Data source:** Mendeley Data — Dual-Signal Buzz Pollination (CC BY 4.0).
 """,
@@ -116,7 +116,7 @@ MFCC) extracted from audio.
         "audio_hint": "Los features se extraen en el servidor con el mismo pipeline de 67 features.",
         "audio_extracted": "Features extraídas",
         "audio_waveform": "Forma de onda (reducida)",
-        "audio_scale_note": "Nota: las escalas MFCC vienen de librosa y difieren del pipeline de entrenamiento — los scores sobre audio son indicativos, no calibrados.",
+        "audio_scale_note": "Los features vienen del mismo extractor librosa con el que se entrenó el modelo. La confianza no está calibrada: tomá los scores como indicativos.",
         "audio_error": "No se pudo procesar este archivo",
         "audio_no_librosa": "El soporte de audio necesita librosa + soundfile instalados.",
         "rows_loaded": "filas cargadas con",
@@ -164,9 +164,9 @@ MFCC) extraídas del audio.
 - Xylocopa pretinha (*Xylocopa* sp.)
 
 **Rendimiento (holdout 80/20 honesto, n=40):**
-- Especies: 77.5% accuracy (RF tuned, 67 features, holdout n=40)
+- Especies: 80.0% accuracy (RF tuned, 67 features librosa, holdout n=40)
 - Tipo de buzz (floral/flight): 100% — con caveat de prefijo de archivo
-- Calibración: Brier 0.090, ECE 0.31 (overconfident)
+- Calibración: Brier 0.096, ECE 0.35 (overconfident)
 
 **Fuente de datos:** Mendeley Data — Dual-Signal Buzz Pollination (CC BY 4.0).
 """,

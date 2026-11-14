@@ -90,16 +90,16 @@ We held out a stratified 20% (seed 42, n=40) before any tuning, ran 5-fold CV wi
 | LDA | 53.1% | 0.53 | — | — |
 | Logistic Regression | 65.6% | 0.66 | — | — |
 | XGBoost (default) | 77.5% | 0.78 | — | — |
-| RF (tuned, Optuna, seed 42) | 81.2% | 0.81 | — | — |
-| **RF (tuned — best)** | **81.2%** | **0.81** | **77.5%** | **0.78** |
+| RF (tuned, Optuna, seed 42) | 76.2% | 0.76 | — | — |
+| **RF (tuned — best)** | **76.2%** | **0.76** | **80.0%** | **0.79** |
 
-Per species on the holdout (8 samples each): *Bombus morio* F1 0.88, Oxaea verdinha 0.82, Xylocopa pretinha 0.86, Banguela sp. 0.67, Centris cinza 0.67 with recall 0.62, the weakest of the five.
+Per species on the holdout (8 samples each): Xylocopa pretinha F1 0.94, *Bombus morio* 0.75, Banguela sp. 0.88, Oxaea verdinha 0.82, Centris cinza 0.57 with recall 0.50, the weakest of the five.
 
-That 77.5% comes from 40 lab recordings, so read it as a midterm estimate rather than expected field performance.
+That 80.0% comes from 40 lab recordings, so read it as a midterm estimate rather than expected field performance.
 
 ### Calibration (holdout)
 
-Brier (OvR mean) 0.090, ECE 0.31. The API returns the forest vote share as confidence, which runs overconfident. It is not a calibrated probability.
+Brier (OvR mean) 0.096, ECE 0.35. The API returns the forest vote share as confidence, which runs overconfident. It is not a calibrated probability.
 
 <details>
 <summary>Confusion matrix and calibration curve</summary>
@@ -125,7 +125,7 @@ Brier (OvR mean) 0.090, ECE 0.31. The API returns the forest vote share as confi
 One caution: filename prefix (`B_` floral vs `V_` flight) predicts the label perfectly, so this score likely reflects recording setup rather than biology. Read it as a data quality warning, not a biological result.
 
 <details>
-<summary>Why is buzz type ~100% but species only 77.5%?</summary>
+<summary>Why is buzz type ~100% but species only 80%?</summary>
 
 Floral sonication and flight buzz differ a lot in duration, frequency and amplitude. Telling five species apart means catching small differences in timbre, which is harder. Each event is an independent recording, so the gap reflects task difficulty, not a leak between train and test.
 
@@ -136,7 +136,7 @@ Floral sonication and flight buzz differ a lot in duration, frequency and amplit
 <details>
 <summary>Expand to see detailed comparison</summary>
 
-The original paper reports 95% accuracy (combined) using 182 features (cinematic band-power from raw audio files among them) and 1000 random train/test splits. Our 77.5% (holdout, n=40) uses 67 features from the pre-extracted CSV with one held out split. The gap comes down to three things:
+The original paper reports 95% accuracy (combined) using 182 features (cinematic band-power from raw audio files among them) and 1000 random train/test splits. Our 80.0% (holdout, n=40) uses 67 librosa features extracted from the raw wavs with one held out split. The training data is now self-consistent: same extractor for train and inference. The gap comes down to three things:
 
 1. Extra cinematic features (band power around 310 to 400 Hz and similar) that need raw .txt files not included in the CSV.
 2. Validation: 1000 random splits with a 33% holdout against our single stratified 80/20 split. Random resampling can leak events from the same individual across splits and inflate the score.
@@ -233,7 +233,7 @@ python scripts/extract_features.py recording.wav --out features.csv
 
 Takes one or more `.wav` files (or a directory), resamples to 44100 Hz mono, extracts the same 67 features (13 MFCC + stats, fundamental frequency, duration) and writes them in dashboard format (`;` separator). Rejects non-wav, silence, clips under 0.05 s and sample rates below 8 kHz.
 
-Known limitation: the training CSV came from the paper's R pipeline, whose MFCC magnitudes sit on a different scale than librosa's (verified against training ranges — only `ffreq`/`duration.s` transfer directly). So treat this script as the pipeline bridge for now: correct schema, but MFCCs need recalibration before field predictions. That recalibration is capstone work.
+Known limitation: the original training CSV came from the paper's R pipeline, whose MFCC magnitudes sit on a different scale than librosa's. The model is now trained on librosa features (`data/processed/buzz_librosa.csv`, same extractor), so this script feeds it in-distribution features. Confidence remains uncalibrated — see README.
 
 ### Run the dashboard
 
