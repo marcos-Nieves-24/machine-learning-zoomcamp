@@ -33,3 +33,4 @@ homework-3/*.png
 .playwright-mcp/
 !project/beebuzz/docs/screenshots/*.png
 !project/beebuzz/reports/*.png
+project/beebuzz/data/raw/all_audios/

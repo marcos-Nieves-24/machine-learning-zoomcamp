@@ -451,9 +451,9 @@ with tab1:
                         bt = predict_type(feats)
                         results.append({
                             "species": sp["species"],
-                            "species_conf": round(sp["confidence"], 4),
+                            "species_confidence": round(sp["confidence"], 4),
                             "buzz_type": bt["buzz_type"],
-                            "buzz_conf": round(bt["confidence"], 4),
+                            "buzz_confidence": round(bt["confidence"], 4),
                         })
                         progress.progress((i + 1) / len(df))
                     res_df = pd.DataFrame(results)
